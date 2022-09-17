@@ -31,6 +31,10 @@
     @apply font-manrope font-medium text-p text-black;
   }
 
+  .navigation-button {
+    @apply font-manrope font-bold text-button uppercase;
+  }
+
   .font-overline {
     @apply font-manrope font-normal text-overline uppercase text-accent1;
   }

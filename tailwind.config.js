@@ -23,7 +23,7 @@ module.exports = {
       white: '#fff',
     },
     fontFamily: {
-      manrope: 'Manrope',
+      manrope: 'Manrope, sans-serif',
     },
     fontSize: {
       h1: [
@@ -75,6 +75,14 @@ module.exports = {
       ],
 
       p: ['15px', '25px'],
+
+      button: [
+        '13px',
+        {
+          letterSpacing: '1px',
+          lineHeight: '18px',
+        },
+      ],
 
       overline: [
         '14px',
