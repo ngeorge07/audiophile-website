@@ -9,8 +9,8 @@ const PrimaryButton: React.FC<IPrimaryButton> = ({ label, ghost }) => {
       onClick={() => console.log('Da')}
       className={`navigation-button w-40 h-12 ${
         ghost
-          ? 'bg-transparent border border-black border-solid text-black'
-          : 'bg-accent1 text-white'
+          ? 'bg-transparent border border-black border-solid text-black hover:bg-black hover:text-white'
+          : 'bg-accent1 text-white hover:bg-accent2'
       }`}
     >
       {label}
