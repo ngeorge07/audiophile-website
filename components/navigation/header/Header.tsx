@@ -29,7 +29,7 @@ const Header: React.FC<IHeader> = () => {
           </a>
         </Link>
 
-        <ul className="flex gap-9 mr-24">
+        <ul className="flex gap-9 lg:mr-24">
           {menuPages.map((label, i) => (
             <HeaderLink key={i} text={label} />
           ))}

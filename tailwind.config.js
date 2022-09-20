@@ -6,11 +6,9 @@ module.exports = {
   ],
   theme: {
     screens: {
-      xs: '375px',
-      sm: '600px',
-      md: '900px',
+      sm: '450px',
+      md: '850px',
       lg: '1200px',
-      xl: '1536px',
     },
     colors: {
       primary: '#F1F1F1',
