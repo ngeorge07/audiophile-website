@@ -40,7 +40,6 @@ Users should be able to:
 - [Tailwind CSS](https://tailwindcss.com/) - Styling
 - [Storybook](https://storybook.js.org/) - Isolating UI components
 
-### What I learned
 
 ### Continued development
 - Mock online payment with [Stripe](https://stripe.com/en-dk/)
