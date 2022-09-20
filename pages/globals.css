@@ -40,6 +40,6 @@
   }
 
   .font-subtitle {
-    @apply font-manrope font-normal text-subtitle uppercase text-accent1;
+    @apply font-manrope font-bold text-subtitle uppercase text-accent1;
   }
 }
