@@ -4,9 +4,9 @@ const IconArrowRight: React.FC = () => {
       <path
         d="M1.322 1l5 5-5 5"
         stroke="#D87D4A"
-        stroke-width="2"
+        strokeWidth="2"
         fill="none"
-        fill-rule="evenodd"
+        fillRule="evenodd"
       />
     </svg>
   );
