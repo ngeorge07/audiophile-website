@@ -9,7 +9,9 @@ const HeaderLink: React.FC<{ text: string }> = ({ text }) => {
   return (
     <li>
       <Link href="#">
-        <a className="text-white  tracking-[2px] font-subtitle">{text}</a>
+        <a className="text-white  tracking-[2px] font-subtitle hover:text-accent1">
+          {text}
+        </a>
       </Link>
     </li>
   );
