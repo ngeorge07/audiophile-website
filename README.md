@@ -3,7 +3,7 @@
 This is a solution to the [Audiophile e-commerce website challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/audiophile-ecommerce-website-C8cuSd_wx). 
 
 ## 📝Note
-This project is in the early stages of development and I will update the README constantly.
+This project is in the early stages of development and I will update the README constantly. It's engine locked on `yarn` meaning you will have to use `yarn install`
 
 ## Table of contents
 
