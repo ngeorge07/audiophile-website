@@ -2,24 +2,11 @@ import Link from 'next/link';
 
 import IconCart from '../../SVGs/IconCart';
 import Logo from '../../SVGs/Logo';
+import NavMenu from '../navMenu/NavMenu';
 
 export interface IHeader {}
 
-const HeaderLink: React.FC<{ text: string }> = ({ text }) => {
-  return (
-    <li>
-      <Link href="#">
-        <a className="text-white  tracking-[2px] font-subtitle hover:text-accent1">
-          {text}
-        </a>
-      </Link>
-    </li>
-  );
-};
-
 const Header: React.FC<IHeader> = () => {
-  const menuPages = ['home', 'headphones', 'speakers', 'earphones'];
-
   return (
     <header className="bg-secondary">
       <nav className="flex items-center justify-evenly py-9 border-b border-b-white/25">
@@ -29,11 +16,7 @@ const Header: React.FC<IHeader> = () => {
           </a>
         </Link>
 
-        <ul className="flex gap-9 lg:mr-24">
-          {menuPages.map((label, i) => (
-            <HeaderLink key={i} text={label} />
-          ))}
-        </ul>
+        <NavMenu className={'lg:mr-24'} />
 
         <button>
           <IconCart />
