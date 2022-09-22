@@ -6,7 +6,7 @@ const HeaderLink: React.FC<{ text: string }> = ({ text }) => {
   return (
     <li>
       <Link href="#">
-        <a className="text-white  tracking-[2px] font-subtitle hover:text-accent1">
+        <a className="text-white tracking-[2px] font-subtitle hover:text-accent1">
           {text}
         </a>
       </Link>
@@ -18,7 +18,7 @@ const NavMenu: React.FC<INavMenu> = ({ className }) => {
   const menuPages = ['home', 'headphones', 'speakers', 'earphones'];
 
   return (
-    <ul className={`flex gap-9 ${className}`}>
+    <ul className={`flex md:gap-9 ${className}`}>
       {menuPages.map((label, i) => (
         <HeaderLink key={i} text={label} />
       ))}

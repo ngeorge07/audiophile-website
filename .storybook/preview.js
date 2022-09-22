@@ -2,9 +2,8 @@ import * as NextImage from 'next/image';
 import '../pages/globals.css';
 
 const BREAKPOINTS_INT = {
-  xs: 375,
-  sm: 450,
-  md: 850,
+  sm: 375,
+  md: 800,
   lg: 1200,
   xl: 1536,
 };
@@ -41,5 +40,6 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  layout: 'fullscreen',
   viewport: { viewports: customViewports },
 };
