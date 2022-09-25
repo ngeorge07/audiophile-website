@@ -3,27 +3,27 @@
 @tailwind utilities;
 
 @layer base {
-  h1 {
+  .font-h1 {
     @apply font-manrope font-bold text-h1 uppercase text-black;
   }
 
-  h2 {
+  .font-h2 {
     @apply font-manrope font-bold text-h2 uppercase text-black;
   }
 
-  h3 {
+  .font-h3 {
     @apply font-manrope font-bold text-h3 uppercase text-black;
   }
 
-  h4 {
+  .font-h4 {
     @apply font-manrope font-bold text-h4 uppercase text-black;
   }
 
-  h5 {
+  .font-h5 {
     @apply font-manrope font-bold text-h5 uppercase text-black;
   }
 
-  h6 {
+  .font-h6 {
     @apply font-manrope font-bold text-h6 uppercase text-black;
   }
 
