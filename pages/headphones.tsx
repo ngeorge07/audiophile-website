@@ -1,15 +1,14 @@
 import AdvertLayout from '../components/layouts/advert/AdvertLayout';
 import PrimaryLayout from '../components/layouts/primary/PrimaryLayout';
-
 import { NextPageWithLayout } from './page';
 
-const Home: NextPageWithLayout = () => {
-  return <h1>Hello world</h1>;
+const Headphones: NextPageWithLayout = () => {
+  return <h1>Test layout rerendering</h1>;
 };
 
-export default Home;
+export default Headphones;
 
-Home.getLayout = (page) => {
+Headphones.getLayout = (page) => {
   return (
     <PrimaryLayout>
       <main>

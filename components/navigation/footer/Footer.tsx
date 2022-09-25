@@ -8,7 +8,7 @@ import NavMenu from '../navMenu/NavMenu';
 
 export interface IFooter {}
 
-const Footer: React.FC = () => {
+const Footer: React.FC<IFooter> = () => {
   return (
     <footer className="bg-secondary pb-8 px-6 md:pb-12 md:px-10 lg:px-40 lg:pb-12">
       <hr className="block w-24 border-t-4 border-accent1 relative top-0 mx-auto md:mx-0" />
