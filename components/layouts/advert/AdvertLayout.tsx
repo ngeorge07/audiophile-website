@@ -12,17 +12,17 @@ const AdvertLayout: React.FC<IAdvert> = () => {
         src={`/shared/${
           screenWidth < 600
             ? 'mobile'
-            : screenWidth < 1200
+            : screenWidth < 1050
             ? 'tablet'
             : 'desktop'
         }/image-best-gear.jpg`}
         alt="Picture of the author"
-        width={screenWidth < 600 ? '654' : screenWidth < 1200 ? '1378' : '540'}
-        height={screenWidth < 1200 ? '600' : '588'}
+        width={screenWidth < 600 ? '654' : screenWidth < 1050 ? '1378' : '540'}
+        height={screenWidth < 1050 ? '600' : '588'}
         className="rounded-lg"
       />
 
-      <div className="lg:pr-[125px] lg:w-[53%]">
+      <div className="lg:pr-[125px] lg:w-[80%] xl:w-[53%]">
         <h2 className="font-h4 mt-10 mb-8 lg:font-h2">
           Bringing you the <span className="text-accent1">best</span> audio gear
         </h2>

@@ -3,9 +3,9 @@ import '../pages/globals.css';
 
 const BREAKPOINTS_INT = {
   sm: 375,
-  md: 800,
-  lg: 1200,
-  xl: 1536,
+  md: 600,
+  lg: 1050,
+  xl: 1440,
 };
 
 const customViewports = Object.fromEntries(
