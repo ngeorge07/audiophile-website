@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import useWindowWidth from '../../utils/useWindowWidth';
-import PrimaryButton from '../buttons/primary-button/PrimaryButton';
+import useWindowWidth from '../../../utils/useWindowWidth';
+import PrimaryButton from '../../buttons/primary-button/PrimaryButton';
 
 export interface IHeroImage {}
 
@@ -8,7 +8,7 @@ const HeroImage: React.FC<IHeroImage> = () => {
   const { screenWidth } = useWindowWidth();
 
   return (
-    <section className="relative z-10">
+    <section className="relative z-10 pb-10">
       <Image
         src={`/home/${
           screenWidth < 600
@@ -36,7 +36,7 @@ const HeroImage: React.FC<IHeroImage> = () => {
           Experience natural, lifelike audio and exceptional build quality made
           for the passionate music enthusiast.
         </p>
-        <PrimaryButton ghost={false} label="see product" />
+        <PrimaryButton ghost={false} label="see product" as="a" />
       </div>
     </section>
   );
