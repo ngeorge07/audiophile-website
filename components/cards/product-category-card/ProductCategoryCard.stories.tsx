@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import ProductCard, { IProductCard } from './ProductCategoryCard';
+import ProductCard, { IProductCategoryCard } from './ProductCategoryCard';
 import { mockProductCardProps } from './ProductCategoryCard.mocks';
 
 export default {
@@ -19,4 +19,4 @@ export const Base = Template.bind({});
 
 Base.args = {
   ...mockProductCardProps.base,
-} as IProductCard;
+} as IProductCategoryCard;
