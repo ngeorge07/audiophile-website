@@ -1,9 +1,10 @@
+import HeroImage from '../components/cards/hero-image/HeroImage';
 import AdvertLayout from '../components/layouts/advert/AdvertLayout';
 import PrimaryLayout from '../components/layouts/primary/PrimaryLayout';
 import { NextPageWithLayout } from './page';
 
 const Headphones: NextPageWithLayout = () => {
-  return <h1>Test layout rerendering</h1>;
+  return <HeroImage />;
 };
 
 export default Headphones;

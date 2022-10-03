@@ -21,7 +21,7 @@ const PrimaryButton: React.FC<IPrimaryButton> = ({ label, ghost, as }) => {
   ) : (
     <Link href="#">
       <a
-        className={`navigation-button inline-block py-4 px-8 hover:cursor-pointer ${
+        className={`navigation-button inline-block py-4 px-8 ${
           ghost
             ? 'bg-transparent border border-black border-solid text-black hover:bg-black hover:text-white'
             : 'bg-accent1 text-white hover:bg-accent2'

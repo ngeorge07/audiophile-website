@@ -1,17 +1,25 @@
+import Link from 'next/link';
 import IconArrowRight from '../../SVGs/IconArrowRight';
 export interface ISecondaryButton {
   label: string;
   className?: string;
+  path: string;
 }
 
-const SecondaryButton: React.FC<ISecondaryButton> = ({ label, className }) => {
+const SecondaryButton: React.FC<ISecondaryButton> = ({
+  label,
+  className,
+  path,
+}) => {
   return (
-    <a
-      className={`navigation-button link-overlay flex items-center gap-2 group ${className}`}
-    >
-      <span className="opacity-50 group-hover:opacity-100">{label}</span>{' '}
-      <IconArrowRight />
-    </a>
+    <Link href={path}>
+      <a
+        className={`navigation-button link-overlay flex items-center gap-2 group ${className}`}
+      >
+        <span className="opacity-50 group-hover:opacity-100">{label}</span>{' '}
+        <IconArrowRight />
+      </a>
+    </Link>
   );
 };
 
