@@ -54,7 +54,7 @@ const BurgerMenu: React.FC<{ screenWidth: number }> = ({ screenWidth }) => {
       </button>
 
       <Link href="/">
-        <a className="pl-10">
+        <a className="ml-10">
           <Logo />
         </a>
       </Link>
