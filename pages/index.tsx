@@ -13,7 +13,7 @@ const Home: NextPageWithLayout = () => {
     <>
       <HeroImage />
       <CategoriesSection />
-      <section className="mx-6 flex flex-col gap-6 md:mx-10 lg:mx-40">
+      <section className="mx-6 flex flex-col gap-6 md:gap-8 lg:gap-12 md:mx-10 lg:mx-40">
         <FeaturedProduct />
         <SecondFeatured />
         <ThirdFeatured />

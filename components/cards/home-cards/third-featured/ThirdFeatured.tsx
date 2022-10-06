@@ -22,7 +22,7 @@ const ThirdFeatured: React.FC<IThirdFeatured> = () => {
         />
       </div>
 
-      <div className="bg-primary rounded-lg md:w-1/2 flex">
+      <div className="bg-accent1 rounded-lg md:w-1/2 flex">
         <div className="self-center ml-6 md:ml-10 lg:ml-24">
           <h3 className="font-h4 mb-8">YX1 EARPHONES</h3>
           <PrimaryButton as="a" label="see product" ghost={true} />
