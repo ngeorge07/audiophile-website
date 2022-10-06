@@ -3,7 +3,7 @@ import FeaturedProduct, { IFeaturedProduct } from './FeaturedProduct';
 import { mockFeaturedProductProps } from './FeaturedProduct.mocks';
 
 export default {
-  title: 'cards/FeaturedProduct',
+  title: 'cards/home/FeaturedProduct',
   component: FeaturedProduct,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

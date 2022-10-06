@@ -3,7 +3,7 @@ import HeroImage, { IHeroImage } from './HeroImage';
 import { mockHeroImageProps } from './HeroImage.mocks';
 
 export default {
-  title: 'cards/HeroImage',
+  title: 'cards/home/HeroImage',
   component: HeroImage,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},

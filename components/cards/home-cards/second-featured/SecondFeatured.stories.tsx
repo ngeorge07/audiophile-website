@@ -1,9 +1,9 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import SecondFeatured, { ISecondFeatured } from './SecondFeatured';
 import { mockSecondFeaturedProps } from './SecondFeatured.mocks';
 
 export default {
-  title: 'templates/SecondFeatured',
+  title: 'cards/home/SecondFeatured',
   component: SecondFeatured,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
@@ -20,4 +20,3 @@ export const Base = Template.bind({});
 Base.args = {
   ...mockSecondFeaturedProps.base,
 } as ISecondFeatured;
-
