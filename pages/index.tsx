@@ -1,4 +1,4 @@
-import HeroImage from '../components/cards/hero-image/HeroImage';
+import HeroImage from '../components/cards/home-cards/hero-image/HeroImage';
 import AdvertLayout from '../components/layouts/advert/AdvertLayout';
 import PrimaryLayout from '../components/layouts/primary/PrimaryLayout';
 import CategoriesSection from '../components/navigation/categories-section/CategoriesSection';

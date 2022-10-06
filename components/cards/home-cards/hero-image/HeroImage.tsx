@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import useWindowWidth from '../../../utils/useWindowWidth';
-import PrimaryButton from '../../buttons/primary-button/PrimaryButton';
+import useWindowWidth from '../../../../utils/useWindowWidth';
+import PrimaryButton from '../../../buttons/primary-button/PrimaryButton';
 
 export interface IHeroImage {}
 
