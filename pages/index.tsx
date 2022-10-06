@@ -12,7 +12,7 @@ const Home: NextPageWithLayout = () => {
   return (
     <>
       <HeroImage />
-      <CategoriesSection />
+      <CategoriesSection className="mt-10 mb-32 md:my-24 lg:mt-[120px] lg:mb-[168px]" />
       <section className="mx-6 flex flex-col gap-6 md:gap-8 lg:gap-12 md:mx-10 lg:mx-40">
         <FeaturedProduct />
         <SecondFeatured />
