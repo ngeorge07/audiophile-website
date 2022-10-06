@@ -1,3 +1,4 @@
+import FeaturedProduct from '../components/cards/home-cards/featured-product/FeaturedProduct';
 import HeroImage from '../components/cards/home-cards/hero-image/HeroImage';
 import AdvertLayout from '../components/layouts/advert/AdvertLayout';
 import PrimaryLayout from '../components/layouts/primary/PrimaryLayout';
@@ -10,6 +11,7 @@ const Home: NextPageWithLayout = () => {
     <>
       <HeroImage />
       <CategoriesSection />
+      <FeaturedProduct />
     </>
   );
 };

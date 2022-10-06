@@ -6,17 +6,13 @@ export interface IHeroImage {}
 
 const HeroImage: React.FC<IHeroImage> = () => {
   const { screenWidth } = useWindowWidth();
+  const imagePath =
+    screenWidth < 600 ? 'mobile' : screenWidth < 1050 ? 'tablet' : 'desktop';
 
   return (
     <section className="relative z-10 pb-10">
       <Image
-        src={`/home/${
-          screenWidth < 600
-            ? 'mobile'
-            : screenWidth < 1050
-            ? 'tablet'
-            : 'desktop'
-        }/image-header.jpg`}
+        src={`/home/${imagePath}/image-header.jpg`}
         alt="Picture of the author"
         width={screenWidth < 600 ? '750' : screenWidth < 1050 ? '1536' : '1440'}
         height={
