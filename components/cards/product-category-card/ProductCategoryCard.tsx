@@ -16,7 +16,7 @@ const ProductCategoryCard: React.FC<IProductCategoryCard> = ({ category }) => {
         width={screenWidth < 600 ? 178 : 228}
         height={screenWidth < 600 ? 162 : 212}
       />
-      <h3 className="font-h6 text-[15px] lg:text-[18px]">{category}</h3>
+      <h2 className="font-h6 text-[15px] lg:text-[18px]">{category}</h2>
       <SecondaryButton label="shop" className="pb-5" path={category} />
     </div>
   );
