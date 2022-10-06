@@ -9,7 +9,7 @@ export interface IProductCategoryCard {
 const ProductCategoryCard: React.FC<IProductCategoryCard> = ({ category }) => {
   const { screenWidth } = useWindowWidth();
   return (
-    <div className="relative flex flex-col items-center w-full category-bg z-10">
+    <article className="relative flex flex-col items-center w-full category-bg z-10">
       <Image
         src={`/shared/desktop/image-category-thumbnail-${category}.png`}
         alt="author"
@@ -18,7 +18,7 @@ const ProductCategoryCard: React.FC<IProductCategoryCard> = ({ category }) => {
       />
       <h2 className="font-h6 text-[15px] lg:text-[18px]">{category}</h2>
       <SecondaryButton label="shop" className="pb-5" path={category} />
-    </div>
+    </article>
   );
 };
 
