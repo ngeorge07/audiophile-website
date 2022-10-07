@@ -58,7 +58,7 @@ const BurgerMenu: React.FC<{ screenWidth: number }> = ({ screenWidth }) => {
             : (document.body.style.overflow = 'hidden');
         }}
       >
-        <IconHamburger openBurger={openBurger} />
+        <IconHamburger isMounted={isMounted} />
       </button>
 
       <Link href="/">

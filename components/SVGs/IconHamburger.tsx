@@ -1,4 +1,4 @@
-const IconHamburger: React.FC<{ openBurger: boolean }> = ({ openBurger }) => {
+const IconHamburger: React.FC<{ isMounted: boolean }> = ({ isMounted }) => {
   return (
     <svg
       width="16"
@@ -13,7 +13,7 @@ const IconHamburger: React.FC<{ openBurger: boolean }> = ({ openBurger }) => {
           height="3"
           fill="white"
           className={`${
-            openBurger
+            isMounted
               ? 'transition ease-in rotate-[45deg] translate-x-1 duration-200'
               : 'transition ease-in rotate-0 translate-x-0 duration-200'
           }`}
@@ -23,9 +23,8 @@ const IconHamburger: React.FC<{ openBurger: boolean }> = ({ openBurger }) => {
           width="16"
           height="3"
           fill="white"
-          // className={`${openBurger ? 'animate-fadeOut' : 'animate-fadeIn'}`}
           className={`${
-            openBurger
+            isMounted
               ? 'transition ease-out opacity-0 -translate-x-3 duration-200'
               : 'transition ease-in opacity-1 translate-x-0 duration-200'
           }`}
@@ -36,7 +35,7 @@ const IconHamburger: React.FC<{ openBurger: boolean }> = ({ openBurger }) => {
           height="3"
           fill="white"
           className={`${
-            openBurger
+            isMounted
               ? 'transition ease-in -rotate-[45deg] translate-x-[-7px] translate-y-[3px] duration-200'
               : 'transition ease-in rotate-0 translate-x-0 translate-y-0 duration-200'
           }`}
