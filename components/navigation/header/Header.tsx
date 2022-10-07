@@ -30,7 +30,9 @@ const DesktopHeader: React.FC = () => {
 
 const BurgerMenu: React.FC<{ screenWidth: number }> = ({ screenWidth }) => {
   const [openBurger, setOpenBurger] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const dynamicRoute = useRouter().asPath;
+
   useEffect(() => {
     setOpenBurger(false);
     document.body.style.overflow = 'auto';
@@ -44,13 +46,19 @@ const BurgerMenu: React.FC<{ screenWidth: number }> = ({ screenWidth }) => {
     >
       <button
         onClick={() => {
-          setOpenBurger((prev) => !prev);
+          !openBurger
+            ? setOpenBurger(true)
+            : setTimeout(() => {
+                setOpenBurger(false);
+              }, 300);
+          setIsMounted((prev) => !prev);
+
           openBurger
             ? (document.body.style.overflow = 'auto')
             : (document.body.style.overflow = 'hidden');
         }}
       >
-        <IconHamburger />
+        <IconHamburger openBurger={openBurger} />
       </button>
 
       <Link href="/">
@@ -65,7 +73,11 @@ const BurgerMenu: React.FC<{ screenWidth: number }> = ({ screenWidth }) => {
 
       {openBurger && (
         <div className="fixed z-40 left-0 bottom-0 w-full h-[88.8%] bg-black/[.40] overflow-auto">
-          <CategoriesSection className="mx-0 px-6 py-8 md:px-10 md:pt-14 md:pb-16 md:mx-0 bg-white" />
+          <CategoriesSection
+            className={`mx-0 px-6 py-8 md:px-10 md:pt-14 md:pb-16 md:mx-0 bg-white ${
+              isMounted ? 'animate-fadeIn' : 'animate-fadeOut'
+            }`}
+          />
         </div>
       )}
     </nav>

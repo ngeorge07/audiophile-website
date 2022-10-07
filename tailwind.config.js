@@ -5,6 +5,39 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
+    extend: {
+      keyframes: {
+        fadeOut: {
+          from: {
+            opacity: 1,
+            transform: ' translateY(0px)',
+            visibility: 'visible',
+          },
+          to: {
+            opacity: 0,
+            transform: ' translateY(-200px)',
+            visibility: 'hidden',
+          },
+        },
+
+        fadeIn: {
+          from: {
+            opacity: 0,
+            transform: ' translateY(-200px)',
+            visibility: 'hidden',
+          },
+          to: {
+            opacity: 1,
+            transform: ' translateY(0)',
+            visibility: 'visible',
+          },
+        },
+      },
+      animation: {
+        fadeOut: 'fadeOut 300ms ease-out forwards',
+        fadeIn: 'fadeIn 300ms ease-in forwards',
+      },
+    },
     screens: {
       sm: '375px',
       md: '600px',
