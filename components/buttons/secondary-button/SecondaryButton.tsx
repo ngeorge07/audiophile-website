@@ -16,7 +16,9 @@ const SecondaryButton: React.FC<ISecondaryButton> = ({
       <a
         className={`navigation-button link-overlay flex items-center gap-2 group ${className}`}
       >
-        <span className="opacity-50 group-hover:opacity-100">{label}</span>{' '}
+        <span className="opacity-50 group-hover:opacity-100 group-hover:text-accent1">
+          {label}
+        </span>{' '}
         <IconArrowRight />
       </a>
     </Link>
