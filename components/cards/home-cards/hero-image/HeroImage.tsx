@@ -10,7 +10,7 @@ const HeroImage: React.FC<IHeroImage> = () => {
     screenWidth < 600 ? 'mobile' : screenWidth < 1050 ? 'tablet' : 'desktop';
 
   return (
-    <section className="relative z-10">
+    <section className="relative -z-10">
       <Image
         src={`/home/${imagePath}/image-header.jpg`}
         alt="Picture of the author"

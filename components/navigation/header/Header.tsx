@@ -35,46 +35,50 @@ const BurgerMenu: React.FC<{ screenWidth: number }> = ({ screenWidth }) => {
 
   useEffect(() => {
     setOpenBurger(false);
+    setIsMounted(false);
     document.body.style.overflow = 'auto';
   }, [dynamicRoute]);
 
   return (
-    <nav
-      className={`flex items-center py-9 border-b border-b-white/25 ${
-        screenWidth < 600 && 'px-6'
-      }`}
-    >
-      <button
-        onClick={() => {
-          !openBurger
-            ? setOpenBurger(true)
-            : setTimeout(() => {
-                setOpenBurger(false);
-              }, 300);
-          setIsMounted((prev) => !prev);
-
-          openBurger
-            ? (document.body.style.overflow = 'auto')
-            : (document.body.style.overflow = 'hidden');
-        }}
+    <nav className={` border-b border-b-white/25 `}>
+      <div
+        className={` relative flex items-center py-9 z-50 ${
+          screenWidth < 600 && 'px-6 bg-[#181818]'
+        }`}
       >
-        <IconHamburger isMounted={isMounted} />
-      </button>
+        <button
+          onClick={() => {
+            !openBurger
+              ? setOpenBurger(true)
+              : setTimeout(() => {
+                  setOpenBurger(false);
+                }, 300);
+            setIsMounted((prev) => !prev);
 
-      <Link href="/">
-        <a className="ml-10">
-          <Logo />
-        </a>
-      </Link>
+            openBurger
+              ? (document.body.style.overflow = 'auto')
+              : (document.body.style.overflow = 'hidden');
+          }}
+          className=""
+        >
+          <IconHamburger isMounted={isMounted} />
+        </button>
 
-      <button className="ml-auto">
-        <IconCart />
-      </button>
+        <Link href="/">
+          <a className="ml-10">
+            <Logo />
+          </a>
+        </Link>
+
+        <button className="ml-auto">
+          <IconCart />
+        </button>
+      </div>
 
       {openBurger && (
-        <div className="fixed z-40 left-0 bottom-0 w-full h-[88.8%] bg-black/[.40] overflow-auto">
+        <div className="z-10 fixed left-0 bottom-0 w-full h-full bg-black/[.40] overflow-y-auto">
           <CategoriesSection
-            className={`mx-0 px-6 py-8 md:px-10 md:pt-14 md:pb-16 md:mx-0 bg-white ${
+            className={`mt-24 mx-0 px-6 py-8 md:px-10 md:pt-14 md:pb-16 md:mx-0 bg-white ${
               isMounted ? 'animate-fadeIn' : 'animate-fadeOut'
             }`}
           />
@@ -88,7 +92,7 @@ const Header: React.FC<IHeader> = () => {
   const { screenWidth } = useWindowWidth();
 
   return (
-    <header className="bg-none absolute z-20 w-full md:px-10 lg:px-40">
+    <header className="bg-none absolute w-full md:px-10 lg:px-40">
       {screenWidth >= 1050 ? (
         <DesktopHeader />
       ) : (
