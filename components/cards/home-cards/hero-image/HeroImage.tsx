@@ -37,6 +37,7 @@ const HeroImage: React.FC<IHeroImage> = () => {
           label="see product"
           as="a"
           path="headphones/xx99-mark-two-headphones"
+          className="bg-accent1"
         />
       </div>
     </section>

@@ -52,7 +52,7 @@ const ProductCard: React.FC<IProductCard> = ({
           ghost={false}
           label="see product"
           path={`/${category}/${slug}`}
-          className="w-fit"
+          className="w-fit bg-accent1"
         />
       </div>
     </article>

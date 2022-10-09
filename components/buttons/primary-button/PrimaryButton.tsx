@@ -34,8 +34,8 @@ const PrimaryButton: React.FC<Element> = (props) => {
       <a
         className={`navigation-button inline-block py-4 px-8 ${
           props.ghost
-            ? 'bg-transparent border border-black border-solid text-black hover:bg-black hover:text-white'
-            : 'bg-accent1 text-white hover:bg-accent2'
+            ? 'bg-transparent border bg-none border-black border-solid text-black hover:bg-black hover:text-white'
+            : 'text-white hover:bg-accent2'
         } ${props.className}`}
       >
         {props.label}
