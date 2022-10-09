@@ -1,13 +1,17 @@
 import Image from 'next/image';
 import useWindowWidth from '../../../utils/useWindowWidth';
 
-export interface IAdvert {}
+export interface IAdvert {
+  className?: string;
+}
 
-const AdvertLayout: React.FC<IAdvert> = () => {
+const AdvertLayout: React.FC<IAdvert> = ({ className }) => {
   const { screenWidth } = useWindowWidth();
 
   return (
-    <section className="px-6 my-32 flex flex-col text-center md:px-10 md:my-24 lg:my-48 lg:flex-row-reverse lg:px-40 lg:text-left lg:items-center">
+    <section
+      className={`px-6 my-32 flex flex-col text-center md:px-10 md:my-24 lg:my-48 lg:flex-row-reverse lg:px-40 lg:text-left lg:items-center ${className}`}
+    >
       <Image
         src={`/shared/${
           screenWidth < 600

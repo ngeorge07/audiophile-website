@@ -13,7 +13,7 @@ class MyDocument extends Document {
           />
           <link rel="icon" href="/favicon-32x32.png" />
         </Head>
-        <body>
+        <body className="bg-background">
           <Main />
           <NextScript />
         </body>
