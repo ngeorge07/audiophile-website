@@ -4,8 +4,11 @@ import type {
   InferGetStaticPropsType,
 } from 'next';
 import Link from 'next/link';
+import AdvertLayout from '../../components/layouts/advert/AdvertLayout';
+import PrimaryLayout from '../../components/layouts/primary/PrimaryLayout';
 import database from '../../lib/products/data.json';
 import { IProductData } from '../../lib/products/types';
+import { NextPageWithLayout } from '../page';
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const allSlugs = ['earphones', 'speakers', 'headphones'];
@@ -49,3 +52,16 @@ const Category = ({
 };
 
 export default Category;
+
+Category.getLayout = (page: NextPageWithLayout) => {
+  return (
+    <PrimaryLayout>
+      <main>
+        <>
+          {page}
+          <AdvertLayout />
+        </>
+      </main>
+    </PrimaryLayout>
+  );
+};
