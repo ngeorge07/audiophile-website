@@ -42,8 +42,8 @@ const BurgerMenu: React.FC<{ screenWidth: number }> = ({ screenWidth }) => {
   return (
     <nav className={` border-b border-b-white/25 `}>
       <div
-        className={` relative flex items-center py-9 z-50 ${
-          screenWidth < 600 && 'px-6 bg-[#181818]'
+        className={`relative flex items-center py-9 z-50 ${
+          screenWidth < 600 && 'px-6 bg-black'
         }`}
       >
         <button
@@ -64,12 +64,12 @@ const BurgerMenu: React.FC<{ screenWidth: number }> = ({ screenWidth }) => {
         </button>
 
         <Link href="/">
-          <a className="ml-10">
+          <a className="mx-auto md:ml-10">
             <Logo />
           </a>
         </Link>
 
-        <button className="ml-auto">
+        <button className="md:ml-auto">
           <IconCart />
         </button>
       </div>
