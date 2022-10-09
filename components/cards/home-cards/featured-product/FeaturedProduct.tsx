@@ -31,6 +31,7 @@ const FeaturedProduct: React.FC<IFeaturedProduct> = () => {
           as="a"
           label="see product"
           ghost={false}
+          path="/speakers/zx9-speaker"
           className="bg-black hover:bg-[#4C4C4C]"
         />
       </div>

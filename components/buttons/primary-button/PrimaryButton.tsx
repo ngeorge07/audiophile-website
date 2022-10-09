@@ -3,37 +3,42 @@ import Link from 'next/link';
 export interface IPrimaryButton {
   label: string;
   ghost: boolean;
-  as: 'button' | 'a';
   className?: string;
+  as: 'button';
 }
 
-const PrimaryButton: React.FC<IPrimaryButton> = ({
-  label,
-  ghost,
-  as,
-  className,
-}) => {
-  return as === 'button' ? (
+export interface IPrimaryLink {
+  label: string;
+  ghost: boolean;
+  className?: string;
+  as: 'a';
+  path: string;
+}
+
+type Element = IPrimaryButton | IPrimaryLink;
+
+const PrimaryButton: React.FC<Element> = (props) => {
+  return props.as === 'button' ? (
     <button
       className={`navigation-button py-4 px-8 ${
-        ghost
+        props.ghost
           ? 'bg-transparent border border-black border-solid text-black hover:bg-black hover:text-white'
           : 'bg-accent1 text-white hover:bg-accent2'
-      } ${className}`}
-      onClick={() => as === 'button' && console.log('da')}
+      } ${props.className}`}
+      onClick={() => props.as === 'button' && console.log('da')}
     >
-      {label}
+      {props.label}
     </button>
   ) : (
-    <Link href="#">
+    <Link href={props.path}>
       <a
         className={`navigation-button inline-block py-4 px-8 ${
-          ghost
+          props.ghost
             ? 'bg-transparent border border-black border-solid text-black hover:bg-black hover:text-white'
             : 'bg-accent1 text-white hover:bg-accent2'
-        } ${className}`}
+        } ${props.className}`}
       >
-        {label}
+        {props.label}
       </a>
     </Link>
   );

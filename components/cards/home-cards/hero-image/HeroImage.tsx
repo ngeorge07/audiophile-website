@@ -32,7 +32,12 @@ const HeroImage: React.FC<IHeroImage> = () => {
           Experience natural, lifelike audio and exceptional build quality made
           for the passionate music enthusiast.
         </p>
-        <PrimaryButton ghost={false} label="see product" as="a" />
+        <PrimaryButton
+          ghost={false}
+          label="see product"
+          as="a"
+          path="headphones/xx99-mark-two-headphones"
+        />
       </div>
     </section>
   );

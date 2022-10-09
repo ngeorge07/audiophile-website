@@ -22,7 +22,12 @@ const SecondFeatured: React.FC<ISecondFeatured> = () => {
 
       <div className="absolute top-1/2 -translate-y-1/2 ml-6 md:ml-16 lg:ml-24">
         <h3 className="font-h4 mb-8">ZX7 SPEAKER</h3>
-        <PrimaryButton as="a" label="see product" ghost={true} />
+        <PrimaryButton
+          as="a"
+          label="see product"
+          ghost={true}
+          path="speakers/zx7-speaker"
+        />
       </div>
     </article>
   );

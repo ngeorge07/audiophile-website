@@ -59,7 +59,6 @@ const BurgerMenu: React.FC<{ screenWidth: number }> = ({ screenWidth }) => {
               ? (document.body.style.overflow = 'auto')
               : (document.body.style.overflow = 'hidden');
           }}
-          className=""
         >
           <IconHamburger isMounted={isMounted} />
         </button>
@@ -92,7 +91,7 @@ const Header: React.FC<IHeader> = () => {
   const { screenWidth } = useWindowWidth();
 
   return (
-    <header className="bg-none absolute w-full md:px-10 lg:px-40">
+    <header className="bg-none z-10 absolute w-full md:px-10 lg:px-40">
       {screenWidth >= 1050 ? (
         <DesktopHeader />
       ) : (
