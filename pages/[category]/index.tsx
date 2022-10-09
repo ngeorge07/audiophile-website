@@ -3,6 +3,7 @@ import type {
   GetStaticProps,
   InferGetStaticPropsType,
 } from 'next';
+import Link from 'next/link';
 import database from '../../lib/products/data.json';
 import { IProductData } from '../../lib/products/types';
 
@@ -10,7 +11,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const allSlugs = ['earphones', 'speakers', 'headphones'];
   return {
     paths: allSlugs.map((slug) => ({ params: { category: slug } })),
-    fallback: 'blocking',
+    fallback: false,
   };
 };
 
@@ -41,7 +42,9 @@ const Category = ({
   products,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return products.map((product: IProductData, i: number) => (
-    <p key={i}>{product.category}</p>
+    <Link key={i} href={`/${product.category}/${product.slug}`}>
+      <a>{product.name}</a>
+    </Link>
   ));
 };
 
