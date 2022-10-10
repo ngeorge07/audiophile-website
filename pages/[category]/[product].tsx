@@ -49,12 +49,12 @@ export const getStaticProps: GetStaticProps<PageProps, ContextParams> = async (
 
 const Product = () => {
   return (
-    <>
+    <section className="mx-6">
       <Link href="#">
         <a className="block font-p opacity-50 my-8">Go Back</a>
       </Link>
       <ProductInfoCard />
-    </>
+    </section>
   );
 };
 
