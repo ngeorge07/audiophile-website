@@ -54,19 +54,17 @@ const Category = ({
       </section>
 
       <section className="mx-6 mt-16 mb-32 flex flex-col gap-32 md:mx-10 md:my-28 md:gap-28 lg:mx-40 lg:gap-40 lg:my-40">
-        {products
-          .map((product: IProductData, i: number) => (
-            <ProductCard
-              key={product.id}
-              slug={product.slug}
-              name={product.name}
-              description={product.description}
-              category={product.category}
-              newProduct={product.new}
-              index={i}
-            />
-          ))
-          .reverse()}
+        {products.reverse().map((product: IProductData, i: number) => (
+          <ProductCard
+            key={product.id}
+            slug={product.slug}
+            name={product.name}
+            description={product.description}
+            category={product.category}
+            newProduct={product.new}
+            index={i}
+          />
+        ))}
       </section>
 
       <CategoriesSection />

@@ -26,7 +26,7 @@ const ProductCard: React.FC<IProductCard> = ({
   return (
     <article
       className={`flex flex-col items-center text-center ${
-        index % 2 === 0 ? 'lg:flex-row-reverse' : 'lg:flex-row'
+        index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
       } lg:gap-32 lg:text-left`}
     >
       <Image
