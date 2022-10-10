@@ -55,6 +55,7 @@ const Product = ({
   products,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
+  const product = products[0];
 
   return (
     <section className="mx-6 md:mx-10 lg:mx-40">
@@ -66,12 +67,35 @@ const Product = ({
         Go Back
       </button>
       <ProductInfoCard
-        slug={products[0].slug}
-        name={products[0].name}
-        description={products[0].description}
-        newProduct={products[0].new}
-        price={products[0].price}
+        slug={product.slug}
+        name={product.name}
+        description={product.description}
+        newProduct={product.new}
+        price={product.price}
       />
+
+      <div className="my-20 md:my-28 flex flex-col lg:flex-row lg:items-start lg:gap-32">
+        <article className="lg:w-[65%]">
+          <h3 className="font-h5 md:font-h3">Features</h3>
+          <p className="font-body opacity-50 mt-6 mb-20 whitespace-pre-line md:mt-8">
+            {product.features}
+          </p>
+        </article>
+
+        <article className="flex flex-col gap-6 md:flex-row md:justify-between md:w-3/4 md:gap-0 lg:flex-col lg:gap-8 lg:w-[35%]">
+          <h3 className="font-h5 md:font-h3">In the box</h3>
+          <ul className="font-body flex flex-col gap-2">
+            {product.includes.map((item, i) => (
+              <li key={i} className="font-bold text-accent1">
+                {item.quantity}x
+                <span className="font-medium text-black pl-6 opacity-50">
+                  {item.item}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      </div>
     </section>
   );
 };

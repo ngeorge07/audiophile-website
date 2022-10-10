@@ -61,7 +61,7 @@ const ProductInfoCard: React.FC<IProductInfoCard> = ({
         </div>
 
         <div className="flex gap-4">
-          <div className="p-4 bg-primary flex justify-between items-center flex-grow font-h6">
+          <div className="p-4 bg-primary flex justify-between items-center flex-grow font-h6 md:max-w-[170px] md:min-w-[130px]">
             <button
               disabled={productCount < 2 && true}
               className={`${
@@ -86,7 +86,7 @@ const ProductInfoCard: React.FC<IProductInfoCard> = ({
             as="button"
             ghost={false}
             label="add to cart"
-            className="w-1/2"
+            className="w-1/2 max-w-[250px]"
           />
         </div>
       </div>
