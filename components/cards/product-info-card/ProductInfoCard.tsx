@@ -3,16 +3,34 @@ import { useState } from 'react';
 import useWindowWidth from '../../../utils/useWindowWidth';
 import PrimaryButton from '../../buttons/primary-button/PrimaryButton';
 
-export interface IProductInfoCard {}
+export interface IProductInfoCard {
+  slug: string;
+  name: string;
+  description: string;
+  price: number;
+  newProduct?: boolean;
+}
 
-const ProductInfoCard: React.FC<IProductInfoCard> = () => {
+const ProductInfoCard: React.FC<IProductInfoCard> = ({
+  slug,
+  name,
+  description,
+  price,
+  newProduct,
+}) => {
   const { screenWidth } = useWindowWidth();
   const [productCount, setProductCount] = useState(1);
+  const imagePath =
+    screenWidth < 600 ? 'mobile' : screenWidth < 1050 ? 'tablet' : 'desktop';
 
   return (
-    <article itemScope itemType="https://schema.org/Product">
+    <article
+      className="flex flex-col md:flex-row md:gap-14 md:items-center lg:gap-28"
+      itemScope
+      itemType="https://schema.org/Product"
+    >
       <Image
-        src={`/product-xx99-mark-two-headphones/mobile/image-product.jpg`}
+        src={`/product-${slug}/${imagePath}/image-product.jpg`}
         alt="author"
         width={screenWidth < 600 ? 654 : screenWidth < 1050 ? 562 : 1080}
         height={screenWidth < 600 ? 654 : screenWidth < 1050 ? 960 : 1120}
@@ -20,16 +38,16 @@ const ProductInfoCard: React.FC<IProductInfoCard> = () => {
         itemProp="image"
       />
 
-      <div>
-        <h3 className="font-overline mt-8 md:mt-12">new product</h3>
+      <div className="md:w-full">
+        {newProduct && (
+          <h3 className="font-overline mt-8 md:mt-0">new product</h3>
+        )}
 
-        <h2 itemProp="name" className="font-h4 my-6">
-          XX99 Mark II Headphones
+        <h2 itemProp="name" className="font-h4 my-6 md:font-h2">
+          {name}
         </h2>
         <p itemProp="description" className="font-body opacity-50">
-          The new XX99 Mark II headphones is the pinnacle of pristine audio. It
-          redefines your premium headphone experience by reproducing the
-          balanced depth and precision of studio-quality sound.
+          {description}
         </p>
 
         <div
@@ -38,7 +56,7 @@ const ProductInfoCard: React.FC<IProductInfoCard> = () => {
           itemScope
           itemType="https://schema.org/Offer"
         >
-          <span itemProp="price">$ 2.999</span>
+          <span itemProp="price">$ {price}</span>
           <meta itemProp="priceCurrency" content="USD" />
         </div>
 
@@ -46,7 +64,9 @@ const ProductInfoCard: React.FC<IProductInfoCard> = () => {
           <div className="p-4 bg-primary flex justify-between items-center flex-grow font-h6">
             <button
               disabled={productCount < 2 && true}
-              className={`${productCount < 2 && 'opacity-50'} p-1`}
+              className={`${
+                productCount > 2 ? 'hover:text-accent1' : 'opacity-50'
+              } p-1`}
               onClick={() =>
                 productCount > 0 && setProductCount((prev) => prev - 1)
               }
@@ -56,13 +76,18 @@ const ProductInfoCard: React.FC<IProductInfoCard> = () => {
             <span>{productCount}</span>
             <button
               onClick={() => setProductCount((prev) => prev + 1)}
-              className="p-1"
+              className="p-1 hover:text-accent1"
             >
               +
             </button>
           </div>
 
-          <PrimaryButton as="button" ghost={false} label="add to cart" />
+          <PrimaryButton
+            as="button"
+            ghost={false}
+            label="add to cart"
+            className="w-1/2"
+          />
         </div>
       </div>
     </article>

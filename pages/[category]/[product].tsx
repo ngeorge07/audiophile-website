@@ -1,5 +1,9 @@
-import type { GetStaticPaths, GetStaticProps } from 'next';
-import Link from 'next/link';
+import type {
+  GetStaticPaths,
+  GetStaticProps,
+  InferGetStaticPropsType,
+} from 'next';
+import { useRouter } from 'next/router';
 import ProductInfoCard from '../../components/cards/product-info-card/ProductInfoCard';
 import AdvertLayout from '../../components/layouts/advert/AdvertLayout';
 import PrimaryLayout from '../../components/layouts/primary/PrimaryLayout';
@@ -47,13 +51,27 @@ export const getStaticProps: GetStaticProps<PageProps, ContextParams> = async (
 //   ));
 // };
 
-const Product = () => {
+const Product = ({
+  products,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const router = useRouter();
+
   return (
-    <section className="mx-6">
-      <Link href="#">
-        <a className="block font-p opacity-50 my-8">Go Back</a>
-      </Link>
-      <ProductInfoCard />
+    <section className="mx-6 md:mx-10 lg:mx-40">
+      <button
+        className="font-p opacity-50 my-8 lg:mt-20"
+        type="button"
+        onClick={() => router.back()}
+      >
+        Go Back
+      </button>
+      <ProductInfoCard
+        slug={products[0].slug}
+        name={products[0].name}
+        description={products[0].description}
+        newProduct={products[0].new}
+        price={products[0].price}
+      />
     </section>
   );
 };
