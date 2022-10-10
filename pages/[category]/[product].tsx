@@ -1,8 +1,4 @@
-import type {
-  GetStaticPaths,
-  GetStaticProps,
-  InferGetStaticPropsType,
-} from 'next';
+import type { GetStaticPaths, GetStaticProps } from 'next';
 import AdvertLayout from '../../components/layouts/advert/AdvertLayout';
 import PrimaryLayout from '../../components/layouts/primary/PrimaryLayout';
 import database from '../../lib/products/data.json';
@@ -41,12 +37,16 @@ export const getStaticProps: GetStaticProps<PageProps, ContextParams> = async (
   };
 };
 
-const Product = ({
-  products,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
-  return products.map((product: IProductData, i: number) => (
-    <p key={i}>{product.name}</p>
-  ));
+// const Product = ({
+//   products,
+// }: InferGetStaticPropsType<typeof getStaticProps>) => {
+//   return products.map((product: IProductData, i: number) => (
+//     <p key={i}>{product.name}</p>
+//   ));
+// };
+
+const Product = () => {
+  return <p></p>;
 };
 
 export default Product;

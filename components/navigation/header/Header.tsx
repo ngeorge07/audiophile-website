@@ -89,9 +89,14 @@ const BurgerMenu: React.FC<{ screenWidth: number }> = ({ screenWidth }) => {
 
 const Header: React.FC<IHeader> = () => {
   const { screenWidth } = useWindowWidth();
+  const dynamicRoute = useRouter().asPath;
 
   return (
-    <header className="bg-none z-10 absolute w-full md:px-10 lg:px-40">
+    <header
+      className={`${
+        dynamicRoute !== '/' ? 'bg-black' : 'bg-none'
+      } z-10 absolute top-0 left-0 w-full md:px-10 lg:px-40`}
+    >
       {screenWidth >= 1050 ? (
         <DesktopHeader />
       ) : (
