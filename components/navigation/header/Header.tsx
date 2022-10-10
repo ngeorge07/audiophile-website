@@ -94,8 +94,8 @@ const Header: React.FC<IHeader> = () => {
   return (
     <header
       className={`${
-        dynamicRoute !== '/' ? 'bg-black' : 'bg-none'
-      } z-10 absolute top-0 left-0 w-full md:px-10 lg:px-40`}
+        dynamicRoute !== '/' ? 'bg-black' : 'bg-none absolute top-0 left-0 '
+      } z-10 w-full md:px-10 lg:px-40`}
     >
       {screenWidth >= 1050 ? (
         <DesktopHeader />

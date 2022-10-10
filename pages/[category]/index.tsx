@@ -47,8 +47,8 @@ const Category = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
-      <section className="bg-black relative top-0 left-0 h-48 md:h-64 flex items-end justify-center">
-        <h1 className="font-h4 md:font-h2 text-white md:text-white pb-8 md:pb-14">
+      <section className="bg-black relative top-0 left-0 h-24 md:h-44 flex items-center justify-center">
+        <h1 className="font-h4 md:font-h2 text-white md:text-white">
           {products[0].category}
         </h1>
       </section>

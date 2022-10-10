@@ -12,7 +12,7 @@ const SecondaryButton: React.FC<ISecondaryButton> = ({
   path,
 }) => {
   return (
-    <Link href={path}>
+    <Link href={`/${path}`}>
       <a
         className={`navigation-button link-overlay flex items-center gap-2 group ${className}`}
       >

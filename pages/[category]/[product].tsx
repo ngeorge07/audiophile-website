@@ -1,4 +1,6 @@
 import type { GetStaticPaths, GetStaticProps } from 'next';
+import Link from 'next/link';
+import ProductInfoCard from '../../components/cards/product-info-card/ProductInfoCard';
 import AdvertLayout from '../../components/layouts/advert/AdvertLayout';
 import PrimaryLayout from '../../components/layouts/primary/PrimaryLayout';
 import database from '../../lib/products/data.json';
@@ -46,7 +48,14 @@ export const getStaticProps: GetStaticProps<PageProps, ContextParams> = async (
 // };
 
 const Product = () => {
-  return <p></p>;
+  return (
+    <>
+      <Link href="#">
+        <a className="block font-p opacity-50 my-8">Go Back</a>
+      </Link>
+      <ProductInfoCard />
+    </>
+  );
 };
 
 export default Product;
