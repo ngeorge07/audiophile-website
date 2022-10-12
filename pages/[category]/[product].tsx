@@ -3,12 +3,14 @@ import type {
   GetStaticProps,
   InferGetStaticPropsType,
 } from 'next';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import ProductInfoCard from '../../components/cards/product-info-card/ProductInfoCard';
 import AdvertLayout from '../../components/layouts/advert/AdvertLayout';
 import PrimaryLayout from '../../components/layouts/primary/PrimaryLayout';
 import database from '../../lib/products/data.json';
 import { IProductData } from '../../lib/products/types';
+import useWindowWidth from '../../utils/useWindowWidth';
 import { NextPageWithLayout } from '../page';
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -43,19 +45,14 @@ export const getStaticProps: GetStaticProps<PageProps, ContextParams> = async (
   };
 };
 
-// const Product = ({
-//   products,
-// }: InferGetStaticPropsType<typeof getStaticProps>) => {
-//   return products.map((product: IProductData, i: number) => (
-//     <p key={i}>{product.name}</p>
-//   ));
-// };
-
 const Product = ({
   products,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
   const product = products[0];
+  const { screenWidth } = useWindowWidth();
+  const imagePath =
+    screenWidth < 600 ? 'mobile' : screenWidth < 1050 ? 'tablet' : 'desktop';
 
   return (
     <section className="mx-6 md:mx-10 lg:mx-40">
@@ -96,6 +93,40 @@ const Product = ({
           </ul>
         </article>
       </div>
+
+      <article className="flex flex-col gap-5 md:grid md:grid-cols-[1.5fr_2fr] md:grid-rows-2 md:gap-x-5 md:gap-y-[18px] lg:gap-x-[30px] lg:gap-y-8">
+        <div className="md:relative flex row-start-1 row-end-2 col-start-1 col-end-2">
+          <Image
+            src={`/product-${product.slug}/${imagePath}/image-gallery-1.jpg`}
+            alt="author"
+            width={screenWidth < 600 ? 654 : screenWidth < 1050 ? 554 : 445}
+            height={screenWidth < 600 ? 348 : screenWidth < 1050 ? 348 : 280}
+            layout={screenWidth > 600 ? 'fill' : 'intrinsic'}
+            className="rounded-lg md:relative"
+          />
+        </div>
+
+        <div className="md:relative flex row-start-2 row-end-3 col-start-1 col-end-2">
+          <Image
+            src={`/product-${product.slug}/${imagePath}/image-gallery-2.jpg`}
+            alt="author"
+            width={screenWidth < 600 ? 654 : screenWidth < 1050 ? 554 : 445}
+            height={screenWidth < 600 ? 348 : screenWidth < 1050 ? 348 : 280}
+            layout={screenWidth > 600 ? 'fill' : 'intrinsic'}
+            className="rounded-lg md:relative"
+          />
+        </div>
+
+        <div className="md:grid row-start-1 row-end-3 col-start-2 col-end-3">
+          <Image
+            src={`/product-${product.slug}/${imagePath}/image-gallery-3.jpg`}
+            alt="author"
+            width={screenWidth < 600 ? 654 : screenWidth < 1050 ? 790 : 635}
+            height={screenWidth < 600 ? 736 : screenWidth < 1050 ? 736 : 592}
+            className="rounded-lg"
+          />
+        </div>
+      </article>
     </section>
   );
 };
