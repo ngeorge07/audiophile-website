@@ -38,5 +38,6 @@ export interface IProductData {
       tablet: string;
       desktop: string;
     };
+    category: string;
   }[];
 }
