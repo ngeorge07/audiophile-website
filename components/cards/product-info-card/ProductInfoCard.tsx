@@ -65,7 +65,7 @@ const ProductInfoCard: React.FC<IProductInfoCard> = ({
             <button
               disabled={productCount < 2 && true}
               className={`${
-                productCount > 2 ? 'hover:text-accent1' : 'opacity-50'
+                productCount > 1 ? 'hover:text-accent1' : 'opacity-50'
               } p-1`}
               onClick={() =>
                 productCount > 0 && setProductCount((prev) => prev - 1)

@@ -2,29 +2,29 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import useWindowWidth from '../../../utils/useWindowWidth';
-import IconCart from '../../SVGs/IconCart';
 import IconHamburger from '../../SVGs/IconHamburger';
 import Logo from '../../SVGs/Logo';
 import CategoriesSection from '../categories-section/CategoriesSection';
+import CheckoutModal from '../checkoutModal/CheckoutModal';
 import NavMenu from '../navMenu/NavMenu';
 
 export interface IHeader {}
 
 const DesktopHeader: React.FC = () => {
   return (
-    <nav className="flex items-center justify-between py-9 border-b border-b-white/25">
-      <Link href="/">
-        <a>
-          <Logo />
-        </a>
-      </Link>
+    <>
+      <nav className="flex z-20 relative items-center justify-between py-9 border-b border-b-white/25">
+        <Link href="/">
+          <a>
+            <Logo />
+          </a>
+        </Link>
 
-      <NavMenu className={'lg:mr-16'} />
+        <NavMenu className={'lg:mr-16'} />
 
-      <button>
-        <IconCart />
-      </button>
-    </nav>
+        <CheckoutModal />
+      </nav>
+    </>
   );
 };
 
@@ -40,7 +40,7 @@ const BurgerMenu: React.FC<{ screenWidth: number }> = ({ screenWidth }) => {
   }, [dynamicRoute]);
 
   return (
-    <nav className={` border-b border-b-white/25 `}>
+    <nav className={`border-b border-b-white/25 `}>
       <div
         className={`relative flex items-center py-9 z-50 ${
           screenWidth < 600 && 'px-6 bg-black'
@@ -55,9 +55,11 @@ const BurgerMenu: React.FC<{ screenWidth: number }> = ({ screenWidth }) => {
                 }, 300);
             setIsMounted((prev) => !prev);
 
-            openBurger
-              ? (document.body.style.overflow = 'auto')
-              : (document.body.style.overflow = 'hidden');
+            setTimeout(() => {
+              openBurger
+                ? (document.body.style.overflow = 'auto')
+                : (document.body.style.overflow = 'hidden');
+            }, 350);
           }}
         >
           <IconHamburger isMounted={isMounted} />
@@ -69,9 +71,7 @@ const BurgerMenu: React.FC<{ screenWidth: number }> = ({ screenWidth }) => {
           </a>
         </Link>
 
-        <button className="md:ml-auto">
-          <IconCart />
-        </button>
+        <CheckoutModal />
       </div>
 
       {openBurger && (
