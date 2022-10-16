@@ -1,9 +1,13 @@
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
-
+import { Suspense } from 'react';
 import Footer from '../../navigation/footer/Footer';
-import Header from '../../navigation/header/Header';
 
 export interface IPrimaryLayout extends React.ComponentPropsWithoutRef<'div'> {}
+
+const DynamicHeader = dynamic(() => import('../../navigation/header/Header'), {
+  ssr: false,
+});
 
 const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children }) => {
   return (
@@ -12,7 +16,9 @@ const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children }) => {
         <title>Primary Layout Example</title>
       </Head>
 
-      <Header />
+      <Suspense fallback={`Loading...`}>
+        <DynamicHeader />
+      </Suspense>
       {children}
       <Footer />
     </>
