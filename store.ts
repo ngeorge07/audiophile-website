@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import burgerModalReducer from './features/burger-modal/burgerModalSlice';
+import cartLogicReducer from './features/cart-logic/cartLogicSlice';
 import cartModalReducer from './features/cart-modal/cartModalSlice';
 
 export const store = configureStore({
   reducer: {
     cartModal: cartModalReducer,
     burgerModal: burgerModalReducer,
+    cartLogic: cartLogicReducer,
   },
 });
 
