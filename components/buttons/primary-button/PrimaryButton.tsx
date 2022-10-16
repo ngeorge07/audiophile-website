@@ -11,7 +11,7 @@ export interface IPrimaryButton {
   ghost: boolean;
   className?: string;
   as: 'button';
-  product: ICartItemData;
+  product?: ICartItemData;
 }
 export interface IPrimaryLink {
   label: string;

@@ -1,4 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Provider } from 'react-redux';
+import { store } from '../../../../store';
 import SecondFeatured, { ISecondFeatured } from './SecondFeatured';
 import { mockSecondFeaturedProps } from './SecondFeatured.mocks';
 
@@ -11,7 +13,9 @@ export default {
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof SecondFeatured> = (args) => (
-  <SecondFeatured {...args} />
+  <Provider store={store}>
+    <SecondFeatured {...args} />
+  </Provider>
 );
 
 export const Base = Template.bind({});

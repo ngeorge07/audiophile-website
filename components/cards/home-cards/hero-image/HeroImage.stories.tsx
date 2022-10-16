@@ -1,4 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Provider } from 'react-redux';
+import { store } from '../../../../store';
 import HeroImage, { IHeroImage } from './HeroImage';
 import { mockHeroImageProps } from './HeroImage.mocks';
 
@@ -11,7 +13,9 @@ export default {
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof HeroImage> = (args) => (
-  <HeroImage {...args} />
+  <Provider store={store}>
+    <HeroImage {...args} />
+  </Provider>
 );
 
 export const Base = Template.bind({});

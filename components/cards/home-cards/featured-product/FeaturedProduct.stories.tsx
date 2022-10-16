@@ -1,4 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Provider } from 'react-redux';
+import { store } from '../../../../store';
 import FeaturedProduct, { IFeaturedProduct } from './FeaturedProduct';
 import { mockFeaturedProductProps } from './FeaturedProduct.mocks';
 
@@ -11,7 +13,9 @@ export default {
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof FeaturedProduct> = (args) => (
-  <FeaturedProduct {...args} />
+  <Provider store={store}>
+    <FeaturedProduct {...args} />
+  </Provider>
 );
 
 export const Base = Template.bind({});

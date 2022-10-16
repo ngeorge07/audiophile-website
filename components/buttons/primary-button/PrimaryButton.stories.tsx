@@ -1,7 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Provider } from 'react-redux';
+import { store } from '../../../store';
 import PrimaryButton, { IPrimaryButton } from './PrimaryButton';
 import { mockPrimaryButtonProps } from './PrimaryButton.mocks';
-
 export default {
   title: 'buttons/PrimaryButton',
   component: PrimaryButton,
@@ -11,7 +12,9 @@ export default {
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof PrimaryButton> = (args) => (
-  <PrimaryButton {...args} />
+  <Provider store={store}>
+    <PrimaryButton {...args} />
+  </Provider>
 );
 
 // More on args: https://storybook.js.org/docs/react/writing-stories/args

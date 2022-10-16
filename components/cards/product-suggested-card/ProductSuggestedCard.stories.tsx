@@ -1,4 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Provider } from 'react-redux';
+import { store } from '../../../store';
 import ProductSuggestedCard, {
   IProductSuggestedCard,
 } from './ProductSuggestedCard';
@@ -13,7 +15,9 @@ export default {
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof ProductSuggestedCard> = (args) => (
-  <ProductSuggestedCard {...args} />
+  <Provider store={store}>
+    <ProductSuggestedCard {...args} />
+  </Provider>
 );
 
 export const Base = Template.bind({});
