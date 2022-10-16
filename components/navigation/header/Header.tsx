@@ -13,7 +13,7 @@ import {
   closeCartModal,
   toggleMountCartModal,
 } from '../../../features/cart-modal/cartModalSlice';
-import { RootState } from '../../../store';
+import { RootState } from '../../../redux/store';
 import useWindowWidth from '../../../utils/useWindowWidth';
 import IconHamburger from '../../SVGs/IconHamburger';
 import Logo from '../../SVGs/Logo';

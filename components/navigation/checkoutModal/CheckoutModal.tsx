@@ -12,7 +12,7 @@ import {
   toggleOpenCartModal,
   unmountCartModal,
 } from '../../../features/cart-modal/cartModalSlice';
-import { RootState } from '../../../store';
+import { RootState } from '../../../redux/store';
 import PrimaryButton from '../../buttons/primary-button/PrimaryButton';
 import CartItemCard from '../../cards/cart-item-card/CartItemCard';
 import IconCart from '../../SVGs/IconCart';

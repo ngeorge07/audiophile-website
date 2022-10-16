@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Provider } from 'react-redux';
-import { store } from '../../../store';
+import { store } from '../../../redux/store';
 import PrimaryLayout, { IPrimaryLayout } from './PrimaryLayout';
 import { mockPrimaryLayoutProps } from './PrimaryLayout.mocks';
 

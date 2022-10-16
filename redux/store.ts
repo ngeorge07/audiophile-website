@@ -1,7 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import burgerModalReducer from './features/burger-modal/burgerModalSlice';
-import cartLogicReducer from './features/cart-logic/cartLogicSlice';
-import cartModalReducer from './features/cart-modal/cartModalSlice';
+import burgerModalReducer from '../features/burger-modal/burgerModalSlice';
+import cartLogicReducer from '../features/cart-logic/cartLogicSlice';
+import cartModalReducer from '../features/cart-modal/cartModalSlice';
+import { loadState } from './browser-storage';
 
 export const store = configureStore({
   reducer: {
@@ -9,6 +10,7 @@ export const store = configureStore({
     burgerModal: burgerModalReducer,
     cartLogic: cartLogicReducer,
   },
+  preloadedState: loadState(),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

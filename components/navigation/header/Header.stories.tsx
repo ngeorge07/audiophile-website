@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Provider } from 'react-redux';
-import { store } from '../../../store';
+import { store } from '../../../redux/store';
 import Header, { IHeader } from './Header';
 import { mockHeaderProps } from './Header.mocks';
 export default {
