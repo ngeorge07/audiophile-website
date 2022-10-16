@@ -1,6 +1,19 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  closeBurgerModal,
+  openBurgerModal,
+  toggleMountBurgerModal,
+  toggleOpenBurgerModal,
+  unmountBurgerModal,
+} from '../../../features/burger-modal/burgerModalSlice';
+import {
+  closeCartModal,
+  toggleMountCartModal,
+} from '../../../features/cart-modal/cartModalSlice';
+import { RootState } from '../../../store';
 import useWindowWidth from '../../../utils/useWindowWidth';
 import IconHamburger from '../../SVGs/IconHamburger';
 import Logo from '../../SVGs/Logo';
@@ -29,15 +42,47 @@ const DesktopHeader: React.FC = () => {
 };
 
 const BurgerMenu: React.FC<{ screenWidth: number }> = ({ screenWidth }) => {
-  const [openBurger, setOpenBurger] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
+  const dispatch = useDispatch();
+  const { isBurgerOpen, isBurgerMounted } = useSelector(
+    (state: RootState) => state.burgerModal
+  );
+  const { isCartOpen } = useSelector((state: RootState) => state.cartModal);
+
   const dynamicRoute = useRouter().asPath;
 
   useEffect(() => {
-    setOpenBurger(false);
-    setIsMounted(false);
+    dispatch(closeBurgerModal());
+    dispatch(unmountBurgerModal());
+
     document.body.style.overflow = 'auto';
-  }, [dynamicRoute]);
+  }, [dynamicRoute, dispatch]);
+
+  function cartModalOpenFirst() {
+    setTimeout(() => {
+      dispatch(closeCartModal());
+    }, 300);
+    dispatch(toggleMountCartModal());
+
+    setTimeout(() => {
+      dispatch(toggleOpenBurgerModal());
+      dispatch(toggleMountBurgerModal());
+    }, 400);
+  }
+
+  function toggleBurgerModal() {
+    !isBurgerOpen
+      ? dispatch(openBurgerModal())
+      : setTimeout(() => {
+          dispatch(closeBurgerModal());
+        }, 300);
+    dispatch(toggleMountBurgerModal());
+
+    setTimeout(() => {
+      isBurgerOpen
+        ? (document.body.style.overflow = 'auto')
+        : (document.body.style.overflow = 'hidden');
+    }, 350);
+  }
 
   return (
     <nav className={`border-b border-b-white/25 `}>
@@ -47,22 +92,11 @@ const BurgerMenu: React.FC<{ screenWidth: number }> = ({ screenWidth }) => {
         }`}
       >
         <button
-          onClick={() => {
-            !openBurger
-              ? setOpenBurger(true)
-              : setTimeout(() => {
-                  setOpenBurger(false);
-                }, 300);
-            setIsMounted((prev) => !prev);
-
-            setTimeout(() => {
-              openBurger
-                ? (document.body.style.overflow = 'auto')
-                : (document.body.style.overflow = 'hidden');
-            }, 350);
-          }}
+          onClick={() =>
+            isCartOpen ? cartModalOpenFirst() : toggleBurgerModal()
+          }
         >
-          <IconHamburger isMounted={isMounted} />
+          <IconHamburger isMounted={isBurgerMounted} />
         </button>
 
         <Link href="/">
@@ -74,11 +108,11 @@ const BurgerMenu: React.FC<{ screenWidth: number }> = ({ screenWidth }) => {
         <CheckoutModal />
       </div>
 
-      {openBurger && (
+      {isBurgerOpen && (
         <div className="z-10 fixed left-0 bottom-0 w-full h-full bg-black/[.40] overflow-y-auto">
           <CategoriesSection
             className={`mt-24 mx-0 px-6 py-8 md:px-10 md:pt-14 md:pb-16 md:mx-0 bg-white ${
-              isMounted ? 'animate-fadeIn' : 'animate-fadeOut'
+              isBurgerMounted ? 'animate-fadeIn' : 'animate-fadeOut'
             }`}
           />
         </div>

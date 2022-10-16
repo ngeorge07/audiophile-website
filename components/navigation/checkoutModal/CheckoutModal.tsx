@@ -1,6 +1,18 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  closeBurgerModal,
+  toggleMountBurgerModal,
+} from '../../../features/burger-modal/burgerModalSlice';
+import {
+  closeCartModal,
+  toggleMountCartModal,
+  toggleOpenCartModal,
+  unmountCartModal,
+} from '../../../features/cart-modal/cartModalSlice';
+import { RootState } from '../../../store';
 import PrimaryButton from '../../buttons/primary-button/PrimaryButton';
 import IconCart from '../../SVGs/IconCart';
 
@@ -9,43 +21,63 @@ export interface ICheckoutModal {
 }
 
 const CheckoutModal: React.FC<ICheckoutModal> = ({ className }) => {
-  const [productCount, setProductCount] = useState(1);
-  const [openCheckoutModal, setOpenCheckoutModal] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
+  const dispatch = useDispatch();
+  const { isCartOpen, isCartMounted } = useSelector(
+    (state: RootState) => state.cartModal
+  );
+  const { isBurgerOpen } = useSelector((state: RootState) => state.burgerModal);
+
   const dynamicRoute = useRouter().asPath;
 
   useEffect(() => {
-    setOpenCheckoutModal(false);
-    setIsMounted(false);
+    dispatch(closeCartModal());
+    dispatch(unmountCartModal());
+
     document.body.style.overflow = 'auto';
-  }, [dynamicRoute]);
+  }, [dynamicRoute, dispatch]);
+
+  function burgerModalOpenFirst() {
+    setTimeout(() => {
+      dispatch(closeBurgerModal());
+    }, 300);
+    dispatch(toggleMountBurgerModal());
+
+    setTimeout(() => {
+      dispatch(toggleOpenCartModal());
+      dispatch(toggleMountCartModal());
+    }, 400);
+  }
+
+  function toggleCartModal() {
+    !isCartOpen
+      ? dispatch(toggleOpenCartModal())
+      : setTimeout(() => {
+          dispatch(closeCartModal());
+        }, 300);
+    dispatch(toggleMountCartModal());
+
+    setTimeout(() => {
+      isCartOpen
+        ? (document.body.style.overflow = 'auto')
+        : (document.body.style.overflow = 'hidden');
+    }, 350);
+  }
 
   return (
     <>
       <button
-        onClick={() => {
-          !openCheckoutModal
-            ? setOpenCheckoutModal(true)
-            : setTimeout(() => {
-                setOpenCheckoutModal(false);
-              }, 300);
-          setIsMounted((prev) => !prev);
-
-          setTimeout(() => {
-            openCheckoutModal
-              ? (document.body.style.overflow = 'auto')
-              : (document.body.style.overflow = 'hidden');
-          }, 350);
-        }}
+        onClick={() =>
+          isBurgerOpen ? burgerModalOpenFirst() : toggleCartModal()
+        }
       >
         <IconCart />
       </button>
 
-      {openCheckoutModal && (
+      {isCartOpen && (
         <div className="-z-10 fixed left-0 bottom-0 w-full h-full bg-black/[.40] overflow-y-auto">
           <article
             className={`bg-white right-[1.5em] left-[1.5em] py-8 px-7 absolute rounded-lg mt-[120px] my-auto md:right-0 md:left-auto  md:w-96 md:mr-10 lg:mr-40 ${
-              isMounted ? 'animate-fadeIn' : 'animate-fadeOut'
+              isCartMounted ? 'animate-fadeIn' : 'animate-fadeOut'
             } ${className}`}
           >
             <section className="flex justify-between">
@@ -85,24 +117,17 @@ const CheckoutModal: React.FC<ICheckoutModal> = ({ className }) => {
               </div>
 
               <div className="px-2 bg-primary flex justify-between items-center ml-auto w-24 h-8">
-                <button
-                  disabled={productCount < 2 && true}
+                {/* <button
+                  disabled={2 && true}
                   className={`${
-                    productCount > 1 ? 'hover:text-accent1' : 'opacity-50'
+                    true ? 'hover:text-accent1' : 'opacity-50'
                   } p-1`}
-                  onClick={() =>
-                    productCount > 0 && setProductCount((prev) => prev - 1)
-                  }
                 >
                   -
-                </button>
-                <span>{productCount}</span>
-                <button
-                  onClick={() => setProductCount((prev) => prev + 1)}
-                  className="p-1 hover:text-accent1"
-                >
-                  +
-                </button>
+                </button> */}
+                <button className="hover:text-accent1 p-1">-</button>
+                <span>1</span>
+                <button className="p-1 hover:text-accent1">+</button>
               </div>
             </section>
 
