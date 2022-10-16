@@ -1,6 +1,7 @@
 import { IProductInfoCard } from './ProductInfoCard';
 
 const base: IProductInfoCard = {
+  id: 2,
   slug: 'xx99-mark-two-headphones',
   name: 'XX99 Mark II Headphones',
   description:

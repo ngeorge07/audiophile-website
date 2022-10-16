@@ -72,6 +72,7 @@ const Product = ({
           description={product.description}
           newProduct={product.new}
           price={product.price}
+          id={product.id}
         />
 
         <div className="my-20 md:my-28 flex flex-col lg:flex-row lg:items-start lg:gap-32">
@@ -104,7 +105,6 @@ const Product = ({
               alt="author"
               width={screenWidth < 600 ? 654 : screenWidth < 1050 ? 554 : 445}
               height={screenWidth < 600 ? 348 : screenWidth < 1050 ? 348 : 280}
-              layout={screenWidth > 600 ? 'fill' : 'intrinsic'}
               className="rounded-lg md:relative"
             />
           </div>
@@ -115,7 +115,7 @@ const Product = ({
               alt="author"
               width={screenWidth < 600 ? 654 : screenWidth < 1050 ? 554 : 445}
               height={screenWidth < 600 ? 348 : screenWidth < 1050 ? 348 : 280}
-              layout={screenWidth > 600 ? 'fill' : 'intrinsic'}
+              layout={'intrinsic'}
               className="rounded-lg md:relative"
             />
           </div>

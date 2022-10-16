@@ -1,9 +1,10 @@
+import { useRouter } from 'next/dist/client/router';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import useWindowWidth from '../../../utils/useWindowWidth';
 import PrimaryButton from '../../buttons/primary-button/PrimaryButton';
-
 export interface IProductInfoCard {
+  id: number;
   slug: string;
   name: string;
   description: string;
@@ -12,6 +13,7 @@ export interface IProductInfoCard {
 }
 
 const ProductInfoCard: React.FC<IProductInfoCard> = ({
+  id,
   slug,
   name,
   description,
@@ -22,6 +24,10 @@ const ProductInfoCard: React.FC<IProductInfoCard> = ({
   const [productCount, setProductCount] = useState(1);
   const imagePath =
     screenWidth < 600 ? 'mobile' : screenWidth < 1050 ? 'tablet' : 'desktop';
+  const dynamicRoute = useRouter().asPath;
+  useEffect(() => {
+    setProductCount(1);
+  }, [dynamicRoute]);
 
   return (
     <article
@@ -87,6 +93,14 @@ const ProductInfoCard: React.FC<IProductInfoCard> = ({
             ghost={false}
             label="add to cart"
             className="w-1/2 max-w-[250px]"
+            product={{
+              id,
+              image: `/cart/image-${slug}.jpg`,
+              name,
+              price,
+              itemQuantity: 0,
+              initialQuantity: productCount,
+            }}
           />
         </div>
       </div>

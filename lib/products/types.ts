@@ -41,3 +41,12 @@ export interface IProductData {
     category: string;
   }[];
 }
+
+export interface ICartItemData {
+  id: number;
+  image: string;
+  name: string;
+  price: number;
+  itemQuantity: number;
+  initialQuantity: number;
+}

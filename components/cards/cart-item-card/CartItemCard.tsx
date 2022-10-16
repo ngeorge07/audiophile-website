@@ -1,0 +1,75 @@
+import Image from 'next/image';
+import { useDispatch } from 'react-redux';
+import {
+  calculateTotals,
+  decrement,
+  increment,
+} from '../../../features/cart-logic/cartLogicSlice';
+import { ICartItemData } from '../../../lib/products/types';
+export interface ICartItemCard {
+  item: ICartItemData;
+}
+
+const CartItemCard: React.FC<ICartItemCard> = ({ item }) => {
+  const dispatch = useDispatch();
+
+  return (
+    <section
+      className="flex my-8 items-center"
+      itemScope
+      itemType="https://schema.org/Product"
+    >
+      <Image
+        src={item.image}
+        alt="author"
+        width={70}
+        height={70}
+        className="rounded-lg"
+        itemProp="image"
+      />
+
+      <div className="flex flex-col ml-4">
+        <h3 className="font-body font-bold" itemProp="name">
+          {item.name}
+        </h3>
+
+        <div
+          className="font-body font-bold opacity-50"
+          itemProp="offers"
+          itemScope
+          itemType="https://schema.org/Offer"
+        >
+          <span itemProp="price">$ {item.price * item.itemQuantity}</span>
+          <meta itemProp="priceCurrency" content="USD" />
+        </div>
+      </div>
+
+      <div className="px-2 bg-primary flex justify-between items-center ml-auto w-24 h-8">
+        <button
+          onClick={() => {
+            dispatch(decrement(item));
+            dispatch(calculateTotals());
+          }}
+          disabled={item.itemQuantity === 1 && true}
+          className={`${
+            item.itemQuantity > 1 ? 'hover:text-accent1' : 'opacity-50'
+          } p-1`}
+        >
+          -
+        </button>
+        <span>{item.itemQuantity}</span>
+        <button
+          onClick={() => {
+            dispatch(increment(item));
+            dispatch(calculateTotals());
+          }}
+          className="p-1 hover:text-accent1"
+        >
+          +
+        </button>
+      </div>
+    </section>
+  );
+};
+
+export default CartItemCard;
