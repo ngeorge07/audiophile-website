@@ -128,7 +128,7 @@ const CheckoutModal: React.FC<ICheckoutModal> = ({ className }) => {
             <PrimaryButton
               as="a"
               ghost={false}
-              path="#"
+              path="/checkout"
               label="checkout"
               className={`bg-accent1 w-full text-center ${
                 amount === 0 && ' bg-accent2 pointer-events-none'

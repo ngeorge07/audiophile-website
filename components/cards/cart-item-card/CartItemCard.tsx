@@ -8,9 +8,10 @@ import {
 import { ICartItemData } from '../../../lib/products/types';
 export interface ICartItemCard {
   item: ICartItemData;
+  isSummary?: boolean;
 }
 
-const CartItemCard: React.FC<ICartItemCard> = ({ item }) => {
+const CartItemCard: React.FC<ICartItemCard> = ({ item, isSummary }) => {
   const dispatch = useDispatch();
 
   return (
@@ -30,7 +31,7 @@ const CartItemCard: React.FC<ICartItemCard> = ({ item }) => {
 
       <div className="flex flex-col ml-4">
         <h3 className="font-body font-bold" itemProp="name">
-          {item.name}
+          {isSummary ? item.name.split(' ').slice(0, -1).join(' ') : item.name}
         </h3>
 
         <div
@@ -43,31 +44,36 @@ const CartItemCard: React.FC<ICartItemCard> = ({ item }) => {
           <meta itemProp="priceCurrency" content="USD" />
         </div>
       </div>
-
-      <div className="px-2 bg-primary flex justify-between items-center ml-auto w-24 h-8">
-        <button
-          onClick={() => {
-            dispatch(decrement(item));
-            dispatch(calculateTotals());
-          }}
-          disabled={item.itemQuantity === 1 && true}
-          className={`${
-            item.itemQuantity > 1 ? 'hover:text-accent1' : 'opacity-50'
-          } p-1`}
-        >
-          -
-        </button>
-        <span>{item.itemQuantity}</span>
-        <button
-          onClick={() => {
-            dispatch(increment(item));
-            dispatch(calculateTotals());
-          }}
-          className="p-1 hover:text-accent1"
-        >
-          +
-        </button>
-      </div>
+      {isSummary ? (
+        <span className="ml-auto font-body opacity-50 font-bold">
+          x{item.itemQuantity}
+        </span>
+      ) : (
+        <div className="px-2 bg-primary flex justify-between items-center ml-auto w-24 h-8">
+          <button
+            onClick={() => {
+              dispatch(decrement(item));
+              dispatch(calculateTotals());
+            }}
+            disabled={item.itemQuantity === 1 && true}
+            className={`${
+              item.itemQuantity > 1 ? 'hover:text-accent1' : 'opacity-50'
+            } p-1`}
+          >
+            -
+          </button>
+          <span>{item.itemQuantity}</span>
+          <button
+            onClick={() => {
+              dispatch(increment(item));
+              dispatch(calculateTotals());
+            }}
+            className="p-1 hover:text-accent1"
+          >
+            +
+          </button>
+        </div>
+      )}
     </section>
   );
 };
