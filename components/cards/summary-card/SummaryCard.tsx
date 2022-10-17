@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../redux/store';
+import numberFormatting from '../../../utils/numberFormatting';
 import CartItemCard from '../cart-item-card/CartItemCard';
 
 export interface ISummaryCard {}
@@ -9,7 +10,7 @@ const SummaryCard: React.FC<ISummaryCard> = () => {
     (state: RootState) => state.cartLogic
   );
 
-  const vat = Number(((total * 20) / 100).toFixed(2));
+  const vat = (total * 20) / 100;
 
   return (
     <article className="p-6 bg-white mb-28 rounded-lg">
@@ -20,7 +21,7 @@ const SummaryCard: React.FC<ISummaryCard> = () => {
       ))}
 
       <section
-        className="flex flex-col mb-6"
+        className="flex flex-col mb-8 gap-2"
         itemScope
         itemType="https://schema.org/Invoice"
       >
@@ -29,7 +30,7 @@ const SummaryCard: React.FC<ISummaryCard> = () => {
             Total
           </h4>
           <span className="font-body text-[18px] font-bold" itemProp="price">
-            $ {total}
+            $ {numberFormatting(total)}
           </span>
           <meta itemProp="priceCurrency" content="USD" />
         </div>
@@ -58,13 +59,13 @@ const SummaryCard: React.FC<ISummaryCard> = () => {
             VAT (included)
           </h4>
           <span className="font-body text-[18px] font-bold" itemProp="price">
-            $ {vat}
+            $ {numberFormatting(vat)}
           </span>
           <meta itemProp="priceCurrency" content="USD" />
         </div>
 
         <div
-          className="flex justify-between"
+          className="flex justify-between mt-4"
           itemProp="totalPaymentDue"
           itemScope
           itemType="https://schema.org/PriceSpecification"
@@ -73,11 +74,18 @@ const SummaryCard: React.FC<ISummaryCard> = () => {
             Grand total
           </h4>
           <span className="font-body text-[18px] font-bold" itemProp="price">
-            $ {total + vat}
+            $ {numberFormatting(total + vat)}
           </span>
           <meta itemProp="priceCurrency" content="USD" />
         </div>
       </section>
+
+      <button
+        className="navigation-button py-4 px-8
+         bg-accent1 text-white hover:bg-accent2 w-full"
+      >
+        Continue & pay
+      </button>
     </article>
   );
 };

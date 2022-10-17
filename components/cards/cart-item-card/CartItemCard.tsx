@@ -6,6 +6,7 @@ import {
   increment,
 } from '../../../features/cart-logic/cartLogicSlice';
 import { ICartItemData } from '../../../lib/products/types';
+import numberFormatting from '../../../utils/numberFormatting';
 export interface ICartItemCard {
   item: ICartItemData;
   isSummary?: boolean;
@@ -40,7 +41,9 @@ const CartItemCard: React.FC<ICartItemCard> = ({ item, isSummary }) => {
           itemScope
           itemType="https://schema.org/Offer"
         >
-          <span itemProp="price">$ {item.price * item.itemQuantity}</span>
+          <span itemProp="price">
+            $ {numberFormatting(item.price * item.itemQuantity)}
+          </span>
           <meta itemProp="priceCurrency" content="USD" />
         </div>
       </div>

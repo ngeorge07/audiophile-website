@@ -13,6 +13,7 @@ import {
   unmountCartModal,
 } from '../../../features/cart-modal/cartModalSlice';
 import { RootState } from '../../../redux/store';
+import numberFormatting from '../../../utils/numberFormatting';
 import PrimaryButton from '../../buttons/primary-button/PrimaryButton';
 import CartItemCard from '../../cards/cart-item-card/CartItemCard';
 import IconCart from '../../SVGs/IconCart';
@@ -120,7 +121,7 @@ const CheckoutModal: React.FC<ICheckoutModal> = ({ className }) => {
                 className="font-body text-[18px] font-bold"
                 itemProp="price"
               >
-                $ {total}
+                $ {numberFormatting(total)}
               </span>
               <meta itemProp="priceCurrency" content="USD" />
             </section>
