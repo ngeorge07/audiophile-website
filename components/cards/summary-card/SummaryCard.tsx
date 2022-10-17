@@ -21,9 +21,8 @@ const SummaryCard: React.FC<ISummaryCard> = () => {
 
       <section
         className="flex flex-col mb-6"
-        itemProp="offers"
         itemScope
-        itemType="https://schema.org/PriceSpecification"
+        itemType="https://schema.org/Invoice"
       >
         <div className="flex justify-between">
           <h4 className="font-body uppercase opacity-50" itemProp="name">
