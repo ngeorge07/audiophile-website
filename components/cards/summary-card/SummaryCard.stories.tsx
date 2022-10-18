@@ -1,4 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Provider } from 'react-redux';
+import { store } from '../../../redux/store';
 import SummaryCard, { ISummaryCard } from './SummaryCard';
 import { mockSummaryCardProps } from './SummaryCard.mocks';
 
@@ -11,7 +13,9 @@ export default {
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof SummaryCard> = (args) => (
-  <SummaryCard {...args} />
+  <Provider store={store}>
+    <SummaryCard {...args} />
+  </Provider>
 );
 
 export const Base = Template.bind({});
