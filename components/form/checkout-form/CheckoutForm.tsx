@@ -1,0 +1,135 @@
+import { useState } from 'react';
+import InputField from '../input-filed/InputField';
+
+export interface ICheckoutForm {}
+
+const CheckoutForm: React.FC<ICheckoutForm> = () => {
+  const [selected, setSelected] = useState(false);
+
+  return (
+    <form
+      className="p-6 bg-white rounded-lg"
+      action="/send-data-here"
+      method="post"
+    >
+      <h2 className="font-h4 md:font-h2">Checkout</h2>
+
+      <section className="mt-[53px]">
+        <h3 className="font-subtitle mb-4">Billing details</h3>
+
+        <div className="flex flex-col gap-6 md:grid md:grid-cols-2">
+          <InputField
+            label="Name"
+            htmlFor="fullName"
+            type="text"
+            placeholder="George Nicolae"
+          />
+
+          <InputField
+            label="Email Address"
+            htmlFor="email"
+            type="email"
+            placeholder="example@email.com"
+          />
+
+          <InputField
+            label="Phone Number"
+            htmlFor="phoneNr"
+            type="tel"
+            placeholder="+1(202)555-0136"
+          />
+        </div>
+      </section>
+
+      <section className="mt-[53px]">
+        <h3 className="font-subtitle mb-4">Shipping information</h3>
+
+        <div className="flex flex-col gap-6 md:grid md:grid-cols-2">
+          <InputField
+            label="Address"
+            htmlFor="address"
+            type="text"
+            placeholder="1137 Williams Avenue"
+            className="md:col-span-2"
+          />
+
+          <InputField
+            label="ZIP Code"
+            htmlFor="zip"
+            type="text"
+            placeholder="10001"
+          />
+
+          <InputField
+            label="City"
+            htmlFor="city"
+            type="text"
+            placeholder="New York"
+          />
+
+          <InputField
+            label="Country"
+            htmlFor="country"
+            type="text"
+            placeholder="United States"
+          />
+        </div>
+      </section>
+
+      <section className="mt-[53px]">
+        <h3 className="font-subtitle mb-4">Payment details</h3>
+
+        <fieldset className="flex flex-col gap-6 md:grid md:grid-cols-2">
+          <legend className="contents mb-2 font-body text-[14px] font-bold">
+            Payment Method
+          </legend>
+          <ul className="flex flex-col gap-4">
+            <li>
+              <label
+                htmlFor="card"
+                className={`${
+                  selected ? 'border-secondary' : 'border-accent1'
+                } hover:cursor-pointer border rounded-lg flex gap-3 pl-3 py-4 w-full font-body text-[14px] font-bold`}
+              >
+                <input
+                  onChange={() => setSelected((prev) => !prev)}
+                  checked={!selected}
+                  className="hover:cursor-pointer"
+                  type="radio"
+                  id="card"
+                  value="card"
+                  name="paymentMethod"
+                  required
+                />
+                Credit Card
+              </label>
+            </li>
+
+            <li>
+              <label
+                htmlFor="cash"
+                className={`${
+                  selected ? 'border-accent1' : 'border-secondary'
+                } hover:cursor-pointer border rounded-lg flex gap-3 pl-3 py-4 w-full font-body text-[14px] font-bold`}
+              >
+                <input
+                  onChange={() => setSelected((prev) => !prev)}
+                  checked={selected}
+                  className="hover:cursor-pointer"
+                  type="radio"
+                  id="cash"
+                  value="cash"
+                  name="paymentMethod"
+                  required
+                />
+                Cash on Delivery
+              </label>
+            </li>
+          </ul>
+        </fieldset>
+      </section>
+    </form>
+  );
+};
+
+export default CheckoutForm;
