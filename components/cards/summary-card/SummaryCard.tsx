@@ -11,6 +11,7 @@ const SummaryCard: React.FC<ISummaryCard> = () => {
   );
 
   const vat = (total * 20) / 100;
+  const shipping = cartItems.length < 1 ? 0 : 50;
 
   return (
     <article className="p-6 bg-white mb-28 rounded-lg lg:h-fit">
@@ -21,7 +22,7 @@ const SummaryCard: React.FC<ISummaryCard> = () => {
           <CartItemCard key={product.id} item={product} isSummary={true} />
         ))
       ) : (
-        <p className="text-center font-body my-4">Your cart is empty</p>
+        <p className="text-center font-body my-6">Your cart is empty</p>
       )}
 
       <section
@@ -53,7 +54,7 @@ const SummaryCard: React.FC<ISummaryCard> = () => {
             Shipping
           </h4>
           <span className="font-body text-[18px] font-bold" itemProp="price">
-            $ 50
+            $ {shipping}
           </span>
           <meta itemProp="priceCurrency" content="USD" />
         </div>
@@ -78,7 +79,7 @@ const SummaryCard: React.FC<ISummaryCard> = () => {
             Grand total
           </h4>
           <span className="font-body text-[18px] font-bold" itemProp="price">
-            $ {numberFormatting(total + vat + 50)}
+            $ {numberFormatting(total + vat + shipping)}
           </span>
           <meta itemProp="priceCurrency" content="USD" />
         </div>
