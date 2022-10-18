@@ -13,7 +13,7 @@ const FeaturedProduct: React.FC<IFeaturedProduct> = () => {
     <article className="bg-accent1 rounded-lg flex flex-col items-center text-center px-6 py-14 md:px-36 md:pt-12 md:pb-16 lg:flex-row lg:pl-28 lg:pr-24 lg:gap-36 lg:pb-0 lg:pt-24 lg:items-end lg:text-left ">
       <Image
         src={`/home/${imagePath}/image-speaker-zx9.png`}
-        alt="author"
+        alt="The ZX9 Speaker"
         width={screenWidth < 600 ? 170 : screenWidth < 1050 ? 190 : 756}
         height={screenWidth < 600 ? 200 : screenWidth < 1050 ? 225 : 880}
       />

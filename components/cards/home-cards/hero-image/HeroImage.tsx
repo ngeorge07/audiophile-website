@@ -13,7 +13,7 @@ const HeroImage: React.FC<IHeroImage> = () => {
     <section className="relative">
       <Image
         src={`/home/${imagePath}/image-header.jpg`}
-        alt="Picture of the author"
+        alt="The XX99 Mark 2 headphones"
         width={screenWidth < 600 ? '750' : screenWidth < 1050 ? '1536' : '1440'}
         height={
           screenWidth < 600 ? '1200' : screenWidth < 1050 ? '1458' : '729'

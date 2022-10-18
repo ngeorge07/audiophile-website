@@ -102,7 +102,7 @@ const Product = ({
           <div className="md:relative flex row-start-1 row-end-2 col-start-1 col-end-2">
             <Image
               src={`/product-${product.slug}/${imagePath}/image-gallery-1.jpg`}
-              alt="author"
+              alt={`Close up of ${product.name}`}
               width={screenWidth < 600 ? 654 : screenWidth < 1050 ? 554 : 445}
               height={screenWidth < 600 ? 348 : screenWidth < 1050 ? 348 : 280}
               className="rounded-lg md:relative"
@@ -112,7 +112,7 @@ const Product = ({
           <div className="md:relative flex row-start-2 row-end-3 col-start-1 col-end-2">
             <Image
               src={`/product-${product.slug}/${imagePath}/image-gallery-2.jpg`}
-              alt="author"
+              alt={`Side view of ${product.name}`}
               width={screenWidth < 600 ? 654 : screenWidth < 1050 ? 554 : 445}
               height={screenWidth < 600 ? 348 : screenWidth < 1050 ? 348 : 280}
               layout={'intrinsic'}
@@ -123,7 +123,7 @@ const Product = ({
           <div className="md:grid row-start-1 row-end-3 col-start-2 col-end-3">
             <Image
               src={`/product-${product.slug}/${imagePath}/image-gallery-3.jpg`}
-              alt="author"
+              alt={`Overview of ${product.name}`}
               width={screenWidth < 600 ? 654 : screenWidth < 1050 ? 790 : 635}
               height={screenWidth < 600 ? 736 : screenWidth < 1050 ? 736 : 592}
               className="rounded-lg"

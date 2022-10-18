@@ -4,7 +4,7 @@ import {
   calculateTotals,
   decrement,
   increment,
-  removeItem,
+  removeItem
 } from '../../../features/cart-logic/cartLogicSlice';
 import { ICartItemData } from '../../../lib/products/types';
 import numberFormatting from '../../../utils/numberFormatting';
@@ -24,7 +24,7 @@ const CartItemCard: React.FC<ICartItemCard> = ({ item, isSummary }) => {
     >
       <Image
         src={item.image}
-        alt="author"
+        alt={item.name}
         width={70}
         height={70}
         className="rounded-lg"

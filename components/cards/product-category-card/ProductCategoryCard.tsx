@@ -12,7 +12,7 @@ const ProductCategoryCard: React.FC<IProductCategoryCard> = ({ category }) => {
     <article className="relative flex flex-col items-center w-full category-bg">
       <Image
         src={`/shared/desktop/image-category-thumbnail-${category}.png`}
-        alt="author"
+        alt={category}
         width={screenWidth < 600 ? 178 : 228}
         height={screenWidth < 600 ? 162 : 212}
       />

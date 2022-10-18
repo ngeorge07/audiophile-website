@@ -13,7 +13,7 @@ const SecondFeatured: React.FC<ISecondFeatured> = () => {
     <article className="relative">
       <Image
         src={`/home/${imagePath}/image-speaker-zx7.jpg`}
-        alt="author"
+        alt="The ZX7 speaker"
         width={screenWidth < 600 ? 654 : screenWidth < 1050 ? 689 : 1110}
         height={screenWidth < 600 ? 640 : screenWidth < 1050 ? 320 : 320}
         className="rounded-lg"

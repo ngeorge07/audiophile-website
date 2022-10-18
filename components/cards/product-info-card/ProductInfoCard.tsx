@@ -37,7 +37,7 @@ const ProductInfoCard: React.FC<IProductInfoCard> = ({
     >
       <Image
         src={`/product-${slug}/${imagePath}/image-product.jpg`}
-        alt="author"
+        alt={name}
         width={screenWidth < 600 ? 654 : screenWidth < 1050 ? 562 : 1080}
         height={screenWidth < 600 ? 654 : screenWidth < 1050 ? 960 : 1120}
         className="rounded-lg"

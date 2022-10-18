@@ -14,7 +14,7 @@ const ThirdFeatured: React.FC<IThirdFeatured> = () => {
       <div className="md:w-1/2 relative">
         <Image
           src={`/home/${imagePath}/image-earphones-yx1.jpg`}
-          alt="author"
+          alt="The YX1 earphones"
           width={screenWidth < 600 ? 654 : screenWidth < 1050 ? 678 : 540}
           height={screenWidth < 600 ? 400 : screenWidth < 1050 ? 640 : 320}
           layout="responsive"

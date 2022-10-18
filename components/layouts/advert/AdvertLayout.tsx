@@ -20,7 +20,7 @@ const AdvertLayout: React.FC<IAdvert> = ({ className }) => {
             ? 'tablet'
             : 'desktop'
         }/image-best-gear.jpg`}
-        alt="Picture of the author"
+        alt="A young adult man, listening to music on overhear headphones. Shot in black and white"
         width={screenWidth < 600 ? '654' : screenWidth < 1050 ? '1378' : '540'}
         height={screenWidth < 1050 ? '600' : '588'}
         className="rounded-lg"
