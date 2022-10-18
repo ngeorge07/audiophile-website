@@ -30,7 +30,7 @@ const AdvertLayout: React.FC<IAdvert> = ({ className }) => {
         <h2 className="font-h4 mt-10 mb-8 lg:font-h2">
           Bringing you the <span className="text-accent1">best</span> audio gear
         </h2>
-        <p className="font-body opacity-50">
+        <p className="font-body opacity-80">
           Located at the heart of New York City, Audiophile is the premier store
           for high end headphones, earphones, speakers, and audio accessories.
           We have a large showroom and luxury demonstration rooms available for

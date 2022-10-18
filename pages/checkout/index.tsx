@@ -16,7 +16,7 @@ const Checkout: NextPageWithLayout = () => {
   return (
     <>
       <button
-        className="ml-6 my-8 font-p opacity-50 md:ml-10 lg:mt-20 lg:ml-20"
+        className="ml-6 my-8 font-p opacity-80 md:ml-10 lg:mt-20 lg:ml-20"
         type="button"
         onClick={() => router.back()}
       >

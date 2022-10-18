@@ -158,7 +158,7 @@ const CheckoutForm: React.FC<ICheckoutForm> = () => {
             <h2 className="font-h5 mt-6 mb-4 md:font-h3">
               Thank you for your order
             </h2>
-            <p className="font-body mb-4 opacity-50">
+            <p className="font-body mb-4 opacity-80">
               You will receive an email confirmation shortly. (not really)
             </p>
 

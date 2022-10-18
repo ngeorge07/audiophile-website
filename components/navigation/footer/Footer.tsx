@@ -19,7 +19,7 @@ const Footer: React.FC<IFooter> = () => {
         </nav>
       </div>
 
-      <p className="font-body text-white opacity-50 text-center md:text-left lg:w-1/2">
+      <p className="font-body text-white opacity-80 text-center md:text-left lg:w-1/2">
         Audiophile is an all in one stop to fulfill your audio needs. We&apos;re
         a small team of music lovers and sound specialists who are devoted to
         helping you get the most out of personal audio. Come and visit our demo
@@ -27,25 +27,45 @@ const Footer: React.FC<IFooter> = () => {
       </p>
 
       <div className="flex flex-col items-center md:flex-row md:justify-between md:mt-20 lg:mt-14">
-        <p className="font-body text-white opacity-50 my-12">
-          Copyright 2021. All Rights Reserved
+        <p className="font-body text-white opacity-80 my-12">
+          Made by{' '}
+          <Link href="https://www.linkedin.com/in/georgenicolae07/">
+            <a
+              aria-label="George Nicolae Linkedin profile"
+              className="hover:text-accent1 underline"
+            >
+              George Nicolae
+            </a>
+          </Link>
         </p>
 
         <div className="flex gap-4">
-          <Link href="#">
-            <a className="group">
+          <Link href="https://www.facebook.com/frontendmentor/">
+            <a
+              aria-label="Link to the FrontEnd Mentor Facebook page"
+              target="_blank"
+              className="group"
+            >
               <IconFacebook className="group-hover:fill-accent1" />
             </a>
           </Link>
 
-          <Link href="#">
-            <a className="group">
+          <Link href="https://twitter.com/frontendmentor?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
+            <a
+              aria-label="Link to the FrontEnd Mentor Twitter page"
+              target="_blank"
+              className="group"
+            >
               <IconTwitter className="group-hover:fill-accent1" />
             </a>
           </Link>
 
-          <Link href="#">
-            <a className="group">
+          <Link href="https://www.instagram.com/georgenicolae_/">
+            <a
+              aria-label="Link to George Nicolae Instagram page"
+              target="_blank"
+              className="group"
+            >
               <IconInstagram className="group-hover:fill-accent1" />
             </a>
           </Link>

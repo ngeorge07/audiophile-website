@@ -43,7 +43,7 @@ const ProductCard: React.FC<IProductCard> = ({
         )}
 
         <h2 className="font-h4 my-6 md:font-h2 md:mt-4 md:mb-8">{name}</h2>
-        <p className="font-body mb-6 opacity-50 md:px-14 lg:px-0">
+        <p className="font-body mb-6 opacity-80 md:px-14 lg:px-0">
           {description}
         </p>
 

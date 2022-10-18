@@ -114,7 +114,7 @@ const CheckoutModal: React.FC<ICheckoutModal> = ({ className }) => {
               itemScope
               itemType="https://schema.org/Offer"
             >
-              <h3 className="font-body uppercase opacity-50" itemProp="name">
+              <h3 className="font-body uppercase opacity-80" itemProp="name">
                 Total
               </h3>
               <span

@@ -31,7 +31,7 @@ const SummaryCard: React.FC<ISummaryCard> = () => {
         itemType="https://schema.org/Invoice"
       >
         <div className="flex justify-between">
-          <h4 className="font-body uppercase opacity-50" itemProp="name">
+          <h4 className="font-body uppercase opacity-80" itemProp="name">
             Total
           </h4>
           <span className="font-body text-[18px] font-bold" itemProp="price">
@@ -50,7 +50,7 @@ const SummaryCard: React.FC<ISummaryCard> = () => {
             itemProp="appliesToDeliveryMethod"
             data-link="http://purl.org/goodrelations/v1#DHL"
           ></meta>
-          <h4 className="font-body uppercase opacity-50" itemProp="name">
+          <h4 className="font-body uppercase opacity-80" itemProp="name">
             Shipping
           </h4>
           <span className="font-body text-[18px] font-bold" itemProp="price">
@@ -60,7 +60,7 @@ const SummaryCard: React.FC<ISummaryCard> = () => {
         </div>
 
         <div className="flex justify-between">
-          <h4 className="font-body uppercase opacity-50" itemProp="name">
+          <h4 className="font-body uppercase opacity-80" itemProp="name">
             VAT (included)
           </h4>
           <span className="font-body text-[18px] font-bold" itemProp="price">
@@ -75,7 +75,7 @@ const SummaryCard: React.FC<ISummaryCard> = () => {
           itemScope
           itemType="https://schema.org/PriceSpecification"
         >
-          <h4 className="font-body uppercase opacity-50" itemProp="name">
+          <h4 className="font-body uppercase opacity-80" itemProp="name">
             Grand total
           </h4>
           <span className="font-body text-[18px] font-bold" itemProp="price">

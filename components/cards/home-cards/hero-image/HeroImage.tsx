@@ -24,7 +24,7 @@ const HeroImage: React.FC<IHeroImage> = () => {
       />
 
       <div className="flex flex-col absolute top-1/2 -translate-y-1/3 w-full px-6 text-center items-center md:-translate-y-[40%] md:px-48 lg:px-40 lg:text-left lg:items-start lg:max-w-[750px]">
-        <span className="font-overline text-white opacity-50">NEW PRODUCT</span>
+        <span className="font-overline text-white opacity-80">NEW PRODUCT</span>
         <h3 className="font-h2 text-[36px] leading-10 text-white mt-4 mb-6 md:text-h1 md:my-6">
           XX99 Mark II HeadphoneS
         </h3>

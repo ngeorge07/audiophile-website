@@ -4,7 +4,7 @@ import {
   calculateTotals,
   decrement,
   increment,
-  removeItem
+  removeItem,
 } from '../../../features/cart-logic/cartLogicSlice';
 import { ICartItemData } from '../../../lib/products/types';
 import numberFormatting from '../../../utils/numberFormatting';
@@ -37,7 +37,7 @@ const CartItemCard: React.FC<ICartItemCard> = ({ item, isSummary }) => {
         </h3>
 
         <div
-          className="font-body font-bold opacity-50"
+          className="font-body font-bold opacity-80"
           itemProp="offers"
           itemScope
           itemType="https://schema.org/Offer"

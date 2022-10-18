@@ -13,7 +13,7 @@ const ProductCategoryCard: React.FC<IProductCategoryCard> = ({ category }) => {
       <Image
         src={`/shared/desktop/image-category-thumbnail-${category}.png`}
         alt={category}
-        width={screenWidth < 600 ? 178 : 228}
+        width={screenWidth < 600 ? 178 : 221}
         height={screenWidth < 600 ? 162 : 212}
       />
       <h2 className="font-h6 text-[15px] lg:text-[18px]">{category}</h2>

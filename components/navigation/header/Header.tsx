@@ -92,6 +92,7 @@ const BurgerMenu: React.FC<{ screenWidth: number }> = ({ screenWidth }) => {
         }`}
       >
         <button
+          aria-label="Open the burger menu to navigate to other pages"
           onClick={() =>
             isCartOpen ? cartModalOpenFirst() : toggleBurgerModal()
           }

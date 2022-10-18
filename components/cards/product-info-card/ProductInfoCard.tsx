@@ -52,7 +52,7 @@ const ProductInfoCard: React.FC<IProductInfoCard> = ({
         <h2 itemProp="name" className="font-h4 my-6 md:font-h2">
           {name}
         </h2>
-        <p itemProp="description" className="font-body opacity-50">
+        <p itemProp="description" className="font-body opacity-80">
           {description}
         </p>
 
