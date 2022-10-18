@@ -15,7 +15,7 @@ const CheckoutForm: React.FC<ICheckoutForm> = () => {
       action="/post/somewhere"
       method="post"
       onSubmit={handleSubmit}
-      className="p-6 bg-white rounded-lg"
+      className="p-6 md:py-7 lg:py-11 bg-white rounded-lg"
       id="checkout-form"
     >
       <h2 className="font-h4 md:font-h2">Checkout</h2>

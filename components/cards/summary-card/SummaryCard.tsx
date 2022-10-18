@@ -13,7 +13,7 @@ const SummaryCard: React.FC<ISummaryCard> = () => {
   const vat = (total * 20) / 100;
 
   return (
-    <article className="p-6 bg-white mb-28 rounded-lg">
+    <article className="p-6 bg-white mb-28 rounded-lg lg:h-fit">
       <h3 className="font-h6">Summary</h3>
 
       {cartItems.map((product) => (
