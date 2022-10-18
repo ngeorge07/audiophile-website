@@ -35,7 +35,7 @@ const CheckoutForm: React.FC<ICheckoutForm> = () => {
 
           <div className="flex flex-col gap-6 md:grid md:grid-cols-2">
             <InputField
-              label="Name"
+              label="Full Name"
               htmlFor="fullName"
               type="text"
               placeholder="George Nicolae"
