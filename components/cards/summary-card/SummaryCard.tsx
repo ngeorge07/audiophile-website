@@ -81,6 +81,7 @@ const SummaryCard: React.FC<ISummaryCard> = () => {
       </section>
 
       <button
+        form="checkout-form"
         className="navigation-button py-4 px-8
          bg-accent1 text-white hover:bg-accent2 w-full"
       >

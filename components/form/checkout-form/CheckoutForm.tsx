@@ -6,11 +6,17 @@ export interface ICheckoutForm {}
 const CheckoutForm: React.FC<ICheckoutForm> = () => {
   const [selected, setSelected] = useState(false);
 
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+  };
+
   return (
     <form
-      className="p-6 bg-white rounded-lg"
-      action="/send-data-here"
+      action="/post/somewhere"
       method="post"
+      onSubmit={handleSubmit}
+      className="p-6 bg-white rounded-lg"
+      id="checkout-form"
     >
       <h2 className="font-h4 md:font-h2">Checkout</h2>
 
@@ -38,7 +44,7 @@ const CheckoutForm: React.FC<ICheckoutForm> = () => {
             label="Phone Number"
             htmlFor="phoneNr"
             type="tel"
-            placeholder="+45 123456789"
+            placeholder="+45 12345678"
             pattern="^((\(?\+45\)?)?)(\s?\d{2}\s?\d{2}\s?\d{2}\s?\d{2})$"
           />
         </div>
