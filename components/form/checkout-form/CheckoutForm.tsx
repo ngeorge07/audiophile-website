@@ -23,6 +23,7 @@ const CheckoutForm: React.FC<ICheckoutForm> = () => {
             htmlFor="fullName"
             type="text"
             placeholder="George Nicolae"
+            pattern="^[_A-z]*((-|\s)*[_A-z])*\s*$"
           />
 
           <InputField
@@ -30,13 +31,15 @@ const CheckoutForm: React.FC<ICheckoutForm> = () => {
             htmlFor="email"
             type="email"
             placeholder="example@email.com"
+            pattern='(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'
           />
 
           <InputField
             label="Phone Number"
             htmlFor="phoneNr"
             type="tel"
-            placeholder="+1(202)555-0136"
+            placeholder="+45 123456789"
+            pattern="^((\(?\+45\)?)?)(\s?\d{2}\s?\d{2}\s?\d{2}\s?\d{2})$"
           />
         </div>
       </section>
@@ -58,6 +61,7 @@ const CheckoutForm: React.FC<ICheckoutForm> = () => {
             htmlFor="zip"
             type="text"
             placeholder="10001"
+            pattern="^\d{0,6}$"
           />
 
           <InputField
@@ -72,6 +76,7 @@ const CheckoutForm: React.FC<ICheckoutForm> = () => {
             htmlFor="country"
             type="text"
             placeholder="United States"
+            pattern="^([a-zA-Z\s\-]+)$"
           />
         </div>
       </section>
@@ -94,7 +99,7 @@ const CheckoutForm: React.FC<ICheckoutForm> = () => {
                 <input
                   onChange={() => setSelected((prev) => !prev)}
                   checked={!selected}
-                  className="hover:cursor-pointer"
+                  className="w-5 accent-accent1 hover:cursor-pointer"
                   type="radio"
                   id="card"
                   value="card"
@@ -115,7 +120,7 @@ const CheckoutForm: React.FC<ICheckoutForm> = () => {
                 <input
                   onChange={() => setSelected((prev) => !prev)}
                   checked={selected}
-                  className="hover:cursor-pointer"
+                  className="w-5 accent-accent1 hover:cursor-pointer"
                   type="radio"
                   id="cash"
                   value="cash"

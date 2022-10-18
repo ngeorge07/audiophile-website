@@ -53,6 +53,8 @@ module.exports = {
       background: '#FAFAFA',
       black: '#000',
       white: '#fff',
+
+      error: '#CD2C2C',
     },
     fontFamily: {
       manrope: 'Manrope, sans-serif',
