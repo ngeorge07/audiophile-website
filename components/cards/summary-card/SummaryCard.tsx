@@ -16,9 +16,13 @@ const SummaryCard: React.FC<ISummaryCard> = () => {
     <article className="p-6 bg-white mb-28 rounded-lg lg:h-fit">
       <h3 className="font-h6">Summary</h3>
 
-      {cartItems.map((product) => (
-        <CartItemCard key={product.id} item={product} isSummary={true} />
-      ))}
+      {cartItems.length >= 1 ? (
+        cartItems.map((product) => (
+          <CartItemCard key={product.id} item={product} isSummary={true} />
+        ))
+      ) : (
+        <p className="text-center font-body my-4">Your cart is empty</p>
+      )}
 
       <section
         className="flex flex-col mb-8 gap-2"
@@ -74,16 +78,17 @@ const SummaryCard: React.FC<ISummaryCard> = () => {
             Grand total
           </h4>
           <span className="font-body text-[18px] font-bold" itemProp="price">
-            $ {numberFormatting(total + vat)}
+            $ {numberFormatting(total + vat + 50)}
           </span>
           <meta itemProp="priceCurrency" content="USD" />
         </div>
       </section>
 
       <button
+        disabled={cartItems.length < 1 && true}
         form="checkout-form"
         className="navigation-button py-4 px-8
-         bg-accent1 text-white hover:bg-accent2 w-full"
+         bg-accent1 text-white hover:bg-accent2 w-full disabled:bg-accent2"
       >
         Continue & pay
       </button>

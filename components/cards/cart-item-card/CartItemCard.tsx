@@ -4,6 +4,7 @@ import {
   calculateTotals,
   decrement,
   increment,
+  removeItem,
 } from '../../../features/cart-logic/cartLogicSlice';
 import { ICartItemData } from '../../../lib/products/types';
 import numberFormatting from '../../../utils/numberFormatting';
@@ -55,13 +56,14 @@ const CartItemCard: React.FC<ICartItemCard> = ({ item, isSummary }) => {
         <div className="px-2 bg-primary flex justify-between items-center ml-auto w-24 h-8">
           <button
             onClick={() => {
-              dispatch(decrement(item));
+              item.itemQuantity > 1
+                ? dispatch(decrement(item))
+                : dispatch(removeItem(item));
+
               dispatch(calculateTotals());
             }}
-            disabled={item.itemQuantity === 1 && true}
-            className={`${
-              item.itemQuantity > 1 ? 'hover:text-accent1' : 'opacity-50'
-            } p-1`}
+            // disabled={item.itemQuantity === 1 && true}
+            className="hover:text-accent1 p-1"
           >
             -
           </button>
