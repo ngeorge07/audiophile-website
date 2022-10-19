@@ -9,10 +9,20 @@ Solution URL: [https://audiophile-website-six.vercel.app/](https://audiophile-we
 ## Table of contents
 
 - [The challenge](#the-challenge)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
+- [Built with](#built-with)
+- [Continued development](#continued-development)
+- [What I learned](#what-i-learned)
+
+  - [Project structure](#project-structure)
+  - [Components structure](#components-structure)
+  - [Layouts and rendering](#layouts-and-rendering)
+  - [State Management](#state-management)
+  - [localStorage](#localstorage)
+    - [The problem](#the-problem)
+    - [The solution](#the-solution)
+
+- [Objective results (Lighthouse test)](#objective-results-lighthouse-test)
+- [Useful Resources](#useful-resources)
 - [Author](#author)
 
 ## The challenge
@@ -39,7 +49,7 @@ Users should be able to:
 - [Tailwind CSS](https://tailwindcss.com/) - Styling
 - [Storybook](https://storybook.js.org/) - Isolating UI components
 
-### **Continued development**
+## Continued development
 
 In the future I am planning to implement these features:
 
@@ -131,13 +141,13 @@ for two main reasons:
 
 One thing I really wanted to include was some sort of persisting logic and I implemented localStorage.
 
-**THE PROBLEM**
+### **THE PROBLEM**
 
 Because my pages were pre-rendered the header and more specifically the cart was pre-rendered as "empty".
 When I implemented the localStorage the updated cart I was now rendering, that already had items inside, did not match the files
 uploaded to the CDN by the pre-rendering resulting in an error.
 
-**THE SOLUTION**
+### **THE SOLUTION**
 
 I figured there must bye a way to dynamically render just the header, since that's where the discrepancy was happening.
 I went to the Next.js documentation and saw there was a way to exclude a component from the initial page JS bundle
