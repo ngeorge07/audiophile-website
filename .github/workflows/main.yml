@@ -1,5 +1,5 @@
 name: install dependencies
-run-name: ${{ github.actor }} is learning GitHub Actions
+run-name: ${{ github.actor }} is using CI
 on: [push]
 jobs:
   check-bats-version:
@@ -9,5 +9,5 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
-      - run: npm install
-      - run: npm run lint
+      - run: yarn install
+      - run: next lint
